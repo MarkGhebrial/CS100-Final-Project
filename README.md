@@ -24,7 +24,7 @@ A tool like GitBuddy would help reduce mistakes from new git users, and possible
 - **C++**: All four group members have skill in C++ from CS010, so it is the language of choice. Python might be a better option on account of its memory safety, but its dynamic typing doesn't play well with large projects.
 - **gtest**: Will be used to implement unit tests, especially for edge cases.
 - **Git**: GitBuddy will invoke Git using the [`system()`](https://cplusplus.com/reference/cstdlib/system/) function in the C standard library. Git will, of course, also be used to manage the project's versions.
-- **GitHub**: Will host Git repository for GitBuddy's source code.
+- **GitHub**: Will host the Git repository for GitBuddy's source code.
 
 ### Input/Output example
 
@@ -48,7 +48,7 @@ In this example, GitBuddy then runs `git add <selected files> && git commit -m "
 
 ### Features
 
-Similar wizards will exist for other Git commands like branch, checkout, revert, etc. The amount of edge cases
+Similar wizards will exist for other Git commands like branch, checkout, revert, etc.
 
 A possible "tutorial mode" will show the user the sequence of commands that GitBuddy would run to make their request happen.
 
