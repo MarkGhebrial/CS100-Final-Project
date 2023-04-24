@@ -1,6 +1,6 @@
 # GitBuddy: the git workflow tool
  
-Authors: [Mark Ghebrial](https://github.com/MarkGhebrial), [Charlie Knox](https://github.com/TheProgrammingWalrus), [Thomas Trinh](https://github.com/ttrin055), Hugo Wan
+Authors: [Mark Ghebrial](https://github.com/MarkGhebrial), [Charlie Knox](https://github.com/TheProgrammingWalrus), [Thomas Trinh](https://github.com/ttrin055), [Hugo Wan](https://github.com/HugoWan0504)
 
 ## Project Description
 
