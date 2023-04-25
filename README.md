@@ -11,7 +11,7 @@ Most IDEs come with a graphical Git integration for performing multiple steps (s
 ### Why are we interested in this project?
 
 Students who are new to Git often find the workflow to be unintuitive, often forgetting steps like checking out to a freshly created branch.
-A tool like GitBuddy would help reduce mistakes from new git users, and possible implementing a "learning" or "tutorial" mode would allow users to gain confidence with Git.
+A tool like GitBuddy would help reduce mistakes from new git users, and possible implementation of a "learning" or "tutorial" mode would allow users to gain confidence with Git.
 
 ### What languages/tools will we use?
 
@@ -23,7 +23,7 @@ A tool like GitBuddy would help reduce mistakes from new git users, and possible
 
 ### Input/Output example
 
-User interaction with GitBuddy will be similar to interacting with github-cli.
+User interaction with GitBuddy will look something like this:
 
 ```
 $ gb commit
@@ -36,7 +36,7 @@ Do you want to stage all changes? (Y/n): n
 Select files to stage: (Some sort of terminal wizardry allows the user to choose what to stage)
 Enter a commit message (leave blank to edit it in vim): Initial commit
 Sync changes with remote? (Y/n): y
-Proceed? (Y/n): y
+Apply changes? (Y/n): y
 Done :)
 ```
 
@@ -50,7 +50,7 @@ Local branches:
 Create or delete a branch? (C/d): c
 Enter branch name: mgheb003/class-diagram
 Checkout to the new branch? (Y/n): y
-Proceed? (Y/n): n
+Apply changes? (Y/n): n
 Canceled.
 ```
 
@@ -60,7 +60,7 @@ Similar wizards will exist for other Git commands like merge, checkout, revert, 
 
 A possible "tutorial mode" will show the user the sequence of commands that GitBuddy would run to make their request happen.
 
-
+A `gb tree` command could print out the repository's commit and branch history in a tree format.
 
  > ## Phase II
  > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
