@@ -54,13 +54,32 @@ Apply changes? (Y/n): n
 Canceled.
 ```
 
+### Error handling
+
+GitBuddy will handle git errors as gracefully as possible. For example:
+- When attempting to push changes a branch that does not have an upstream, GitBuddy will ask the user if they want to create a branch on the remote.
+- When encountering merge conflicts, GitBuddy will tell the user what files have conflicts. Once the conflicts have been resolved, the user can use GitBuddy to automatically finish the merge.
+- If the user is not authenticated with GitHub, GitBuddy will provide them with instructions on how to authenticate.
+
 ### Features
 
-Similar wizards will exist for other Git commands like merge, checkout, revert, etc.
+Wizards will be implemented for the following Git workflows
+- `commit`: Allows the user to select files to stage and enter a commit message.
+- `merge`: Allows the user to select which branches to merge, then handles checking them out in the correct order and notifying the user of any merge conflicts. If a merge is in progress and all conflicts have been resolved when this command is invoked, GitBuddy will commit the merge.
+- `branch`: Allows the user to create or delete a branch and asks if they want to checkout to that branch or not.
+- `checkout`: Allows the user to choose a branch or commit to checkout to. If there are uncommited changes in the working directory, GitBuddy will ask the user if they want to stash their changes.
+- `sync`: Will push and pull changes from the remote.
+- `discard`: Allows the user to undo changes to files in the working directory.
+- `revert`: Allows the user to select one or more commits to revert. If multiple commits are chosen, GitBuddy will then ask the user if they want to squash the revert commits.
+- `reset`: Allows the user to roll history back to a commit of their choice.
+- `ignore`: Allows users to untrack files of thier choosing and optionally add them to the gitignore.
+- More features will be hashed out as development continues.
+
+Other feature ideas
+- GitBuddy will have a tool for configuring Git username and email, since the commands required for doing so are hard to remember.
+- ~~A `gb tree` command could print out the repository's commit and branch history in a tree format.~~ It turns out that `git log --all --oneline --graph` can already do this. Maybe we can alias `gb tree` to that command?
 
 A possible "tutorial mode" will show the user the sequence of commands that GitBuddy would run to make their request happen.
-
-A `gb tree` command could print out the repository's commit and branch history in a tree format.
 
  > ## Phase II
  > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
