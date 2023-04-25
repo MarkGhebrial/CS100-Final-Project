@@ -1,6 +1,6 @@
 # GitBuddy: the git workflow tool
  
-Authors: [Mark Ghebrial](https://github.com/MarkGhebrial), [Charlie Knox](https://github.com/TheProgrammingWalrus), [Thomas Trinh](https://github.com/ttrin055), Hugo Wan
+Authors: [Mark Ghebrial](https://github.com/MarkGhebrial), [Charlie Knox](https://github.com/TheProgrammingWalrus), [Thomas Trinh](https://github.com/ttrin055), [Hugo Wan](https://github.com/HugoWan0504)
 
 ## Project Description
 
@@ -11,24 +11,19 @@ Most IDEs come with a graphical Git integration for performing multiple steps (s
 ### Why are we interested in this project?
 
 Students who are new to Git often find the workflow to be unintuitive, often forgetting steps like checking out to a freshly created branch.
-A tool like GitBuddy would help reduce mistakes from new git users, and possible implementing a "learning" or "tutorial" mode would allow users to gain confidence with Git itself.
-
->> We also believe that the scope of GitBuddy's features is flexible enough to ensure that, in the worst case, a minimal product will be produced, and, in the best case, a feature-rich tool will emerge.
-
->> Essentialy, more features can fit into the project if we finish it early, but, if we've bitten off more than we can chew, we can cut features and still have a working product.
-
->> We also believe that more features can fit into GitBuddy if we finish it early, but, if we've bitten off more than we can chew, we can cut features and still have a working product.
+A tool like GitBuddy would help reduce mistakes from new git users, and possible implementation of a "learning" or "tutorial" mode would allow users to gain confidence with Git.
 
 ### What languages/tools will we use?
 
 - **C++**: All four group members have skill in C++ from CS010, so it is the language of choice. Python might be a better option on account of its memory safety, but its dynamic typing doesn't play well with large projects.
 - **gtest**: Will be used to implement unit tests, especially for edge cases.
-- **Git**: GitBuddy will invoke Git using the [`system()`](https://cplusplus.com/reference/cstdlib/system/) function in the C standard library. Git will, of course, also be used to manage the project's versions.
+- **Git**: GitBuddy will invoke Git using the [`system()`](https://cplusplus.com/reference/cstdlib/system/) or `popen()` functions in the C standard library. Git will, of course, also be used to manage the project's versions.
 - **GitHub**: Will host the Git repository for GitBuddy's source code.
+- **valgrind**: Will be used to detect and debug memory errors. Fixing memory leaks will not be a significant priority since GitBuddy will not run in the background.
 
 ### Input/Output example
 
-User interaction with GitBuddy will be similar to interacting with github-cli.
+User interaction with GitBuddy will look something like this:
 
 ```
 $ gb commit
@@ -40,19 +35,32 @@ Staged changes: none
 Do you want to stage all changes? (Y/n): n
 Select files to stage: (Some sort of terminal wizardry allows the user to choose what to stage)
 Enter a commit message (leave blank to edit it in vim): Initial commit
-Pull, then push changes? (Y/n): y
-Proceed? (Y/n): y
+Sync changes with remote? (Y/n): y
+Apply changes? (Y/n): y
+Done :)
 ```
 
-In this example, GitBuddy then runs `git add <selected files> && git commit -m "Initial commit" && git pull && git push`.
+In the above example, GitBuddy then runs `git add <selected files> && git commit -m "Initial commit" && git pull && git push`.
+
+```
+$ gb branch
+Local branches:
+    main
+    mgheb003/project-proposal <- Current branch
+Create or delete a branch? (C/d): c
+Enter branch name: mgheb003/class-diagram
+Checkout to the new branch? (Y/n): y
+Apply changes? (Y/n): n
+Canceled.
+```
 
 ### Features
 
-Similar wizards will exist for other Git commands like branch, checkout, revert, etc.
+Similar wizards will exist for other Git commands like merge, checkout, revert, etc.
 
 A possible "tutorial mode" will show the user the sequence of commands that GitBuddy would run to make their request happen.
 
-
+A `gb tree` command could print out the repository's commit and branch history in a tree format.
 
  > ## Phase II
  > In addition to completing the "User Interface Specification" and "Class Diagram" sections below, you will need to:
