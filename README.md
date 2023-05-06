@@ -97,7 +97,7 @@ A possible "tutorial mode" will show the user the sequence of commands that GitB
 
 ### Navigation Diagram
 
-<iframe frameborder="0" style="width:100%;height:573px;" src="https://viewer.diagrams.net/?tags=%7B%7D&highlight=0000ff&edit=_blank&layers=1&nav=1&title=Navigation%20Diagram.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1Tyxf2Yi88Hm0ikOwKy6oJPfvHjo4OSOQ%26export%3Ddownload"></iframe>
+![Navigation diagram](images/Navigation%20Diagram.drawio.png)
 
 ### Screen Layouts
 > Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs, expected output, and buttons (if applicable). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
