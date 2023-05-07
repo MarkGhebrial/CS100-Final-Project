@@ -95,7 +95,7 @@ A possible "tutorial mode" will show the user the sequence of commands that GitB
 ## User Interface Specification
  > Include a navigation diagram for your screens and the layout of each of those screens as desribed below. For all the layouts/diagrams, you can use any tool such as PowerPoint or a drawing program. (Specification requirement is adapted from [this template](https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
 
-### Navigation Diagram
+### [Navigation Diagram](https://drive.google.com/file/d/1Tyxf2Yi88Hm0ikOwKy6oJPfvHjo4OSOQ/view)
 
 ![Navigation diagram](images/Navigation%20Diagram.drawio.png)
 
