@@ -93,14 +93,12 @@ A possible "tutorial mode" will show the user the sequence of commands that GitB
  >     * The tasks you are planning for the first sprint
  >     * How work will be divided between the team members
 ## User Interface Specification
- > Include a navigation diagram for your screens and the layout of each of those screens as desribed below. For all the layouts/diagrams, you can use any tool such as PowerPoint or a drawing program. (Specification requirement is adapted from [this template](https://redirect.cs.umbc.edu/~mgrass2/cmsc345/Template_UI.doc))
 
 ### [Navigation Diagram](https://drive.google.com/file/d/1Tyxf2Yi88Hm0ikOwKy6oJPfvHjo4OSOQ/view)
 
 ![Navigation diagram](images/Navigation%20Diagram.drawio.png)
 
 ### Screen Layouts
-> Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs, expected output, and buttons (if applicable). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
 
 #### Menu screen
 
@@ -117,7 +115,26 @@ The user moves the cursor with the arrow keys, selects items with the space bar,
     [ ] Menu item 5
 </code></pre>
 
-TODO: List menu types
+Menu types:
+- Unstaged file menu: Choose one or more unstaged files
+- Branch menu: Choose a branch
+- Commit history menu: Choose one or more commits
+
+#### File menu screen
+
+Allows the user to select one or more files in the working directory.
+The up and down arrow keys are used to move the cursor. The left and right arrow keys are used to expand/collapse folders.
+
+<pre><code>Select files:
+    .gitignore
+    Makefile
+    <b>cursor-location.sh</b>
+    CmakeLists.txt
+  > src
+  v include
+        Rectangle.h
+        <i>SelectedFile.h</i>
+</code></pre>
 
 #### Staged and unstaged changes screen
 
@@ -133,10 +150,6 @@ Staged changes:
     README.md
 ```
 
-#### Commit options screen
-
-TODO
-
 #### Branch display screen
 
 Shows the local and remote branches and indicates the one that is currently checked out.
@@ -150,15 +163,40 @@ Remote branches:
   origin/navigation-diagram
 </code></pre>
 
+#### Change confirmation screen
+
+Asks the user if they want GitBuddy to execute the commands they just specified.
+
+```
+Apply changes? (Y/n):
+```
+
+#### Commit options screen
+
+```
+Enter a commit message (leave blank to edit it in vim):
+Sync changes with remote? (Y/n):
+```
+
 #### Branch options screen
 
-TODO
+```
+Create or delete a branch? (C/d):
+Enter branch name:
+Checkout to the new branch? (Y/n):
+```
 
 #### Revert options screen
 
-TODO
+```
+Squash revert commits? (Y/n): 
+```
 
 #### Ignore options screen
+
+```
+Add files to gitignore? (Y/n):
+```
 
 ## Class Diagram
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
