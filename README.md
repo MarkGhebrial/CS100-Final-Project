@@ -102,6 +102,64 @@ A possible "tutorial mode" will show the user the sequence of commands that GitB
 ### Screen Layouts
 > Include the layout of each of your screens. The layout should describe the screen’s major components such as menus and prompts for user inputs, expected output, and buttons (if applicable). Explain what is on the layout, and the purpose of each menu item, button, etc. If many screens share the same layout, start by describing the general layout and then list the screens that will be using that layout and the differences between each of them.
 
+#### Menu screen
+
+Presents a number of options in the terminal for the user to select from.
+Menu can either allow the user to select one item or multiple.
+
+The user moves the cursor with the arrow keys, selects items with the space bar, and confirms the selection using the enter key.
+
+<pre><code>Menu prompt:
+    [ ] Menu item 1       [ ] Menu item 6
+    <b>[ ] Cursor location</b>   [ ] Menu item 7
+    [ ] Menu item 3       [ ] Menu item 8
+    [ ] Menu item 4       [x] <i>Selected menu item</i>
+    [ ] Menu item 5
+</code></pre>
+
+TODO: List menu types
+
+#### Staged and unstaged changes screen
+
+Shows the files with uncommited changes.
+
+```
+Unstaged changes:
+    main.cpp ++++--
+    CMakeLists.txt ++++
+    .gitignore +++-
+Staged changes:
+    main.cpp ++-
+    README.md
+```
+
+#### Commit options screen
+
+TODO
+
+#### Branch display screen
+
+Shows the local and remote branches and indicates the one that is currently checked out.
+
+<pre><code>Local branches:
+  <b>main <- Checked out</b>
+  navigation-diagram
+Remote branches:
+  origin/screen-layouts
+  origin/main
+  origin/navigation-diagram
+</code></pre>
+
+#### Branch options screen
+
+TODO
+
+#### Revert options screen
+
+TODO
+
+#### Ignore options screen
+
 ## Class Diagram
  > Include a **class diagram(s)** for your project and a **description** of the diagram(s). Your class diagram(s) should include all the main classes you plan for the project. This should be in sufficient detail that another group could pick up the project this point and successfully complete it. Use proper UML notation (as discussed in the course slides).
  
