@@ -188,6 +188,8 @@ Checkout to the new branch? (Y/n):
 
 #### Revert options screen
 
+If the user selected multiple commits to revert, this screen will ask them if they want to turn the multiple revert commits that will be created into one commit.
+
 ```
 Squash revert commits? (Y/n): 
 ```
