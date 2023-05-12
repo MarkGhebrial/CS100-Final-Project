@@ -37,41 +37,5 @@ GitStatusResult GitStatus::run() {
 
     GitStatusResult result = GitStatusResult(output);
 
-    // string status;
-    // string fileName;
-    // while (stream >> status >> fileName) {
-    //     if (status == "M") { // Modified
-    //         result.unstagedChanges.push_back(fileName);
-    //     } else if (status == "??") { // Untracked
-    //         result.untrackedChanges.push_back(fileName);
-    //     } else if (status == "AM") { // Modified since it was last staged
-    //         result.unstagedChanges.push_back(fileName);
-    //         result.stagedChanges.push_back(fileName);
-    //     } else if (status == "A") { // Staged
-    //         result.stagedChanges.push_back(fileName);
-    //     }
-    // }
-
-
-
-    // string line;
-    // while (getline(stream, line)) {
-    //     char x = line.at(0);
-    //     char y = line.at(1);
-    //     string filename = line.substr(3, line.size() - 1);
-
-    //     if (x == '?' and y == '?') {
-    //         result.untrackedChanges.push_back(filename);
-    //         continue;
-    //     }
-
-    //     if (x != ' ') {
-    //         result.stagedChanges.push_back(filename);
-    //     }
-    //     if (y != ' ') {
-    //         result.unstagedChanges.push_back(filename);
-    //     }
-    // }
-
     return result;
 }

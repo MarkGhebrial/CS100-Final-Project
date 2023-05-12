@@ -9,6 +9,9 @@ add_executable(gb
 
 add_executable(test
     src/test/tests.cpp
+    src/test/gitStatusTests.cpp
+    src/git/gitCommand.cpp
+    src/git/gitStatus.cpp
 )
 target_link_libraries(
   test
