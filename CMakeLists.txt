@@ -3,6 +3,7 @@ project(gitbuddy)
 
 add_executable(gb
     src/main.cpp
+    src/git/gitCommand.cpp
 )
 
 add_executable(test
