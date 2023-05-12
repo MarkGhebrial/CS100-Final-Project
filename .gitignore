@@ -4,5 +4,11 @@ CMakeCache.txt
 cmake_install.cmake
 Makefile
 
+# Dependencies
+/_deps
+
 #Binaries
 gb
+test
+
+/lib
