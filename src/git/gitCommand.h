@@ -10,10 +10,10 @@ class GitCommand {
         /// @param command The command to be run. "git " will be automatically prepended to it.
         GitCommand(string command);
         
-    public: // TODO: make this method protected
+    protected:
         /// @brief Run the command in a shell and return its output
         /// @return The command's output
-        string run();
+        string runCommand();
 
     private:
         string command;

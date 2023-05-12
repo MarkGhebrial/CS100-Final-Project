@@ -15,7 +15,7 @@ GitCommand::GitCommand(string command) {
     this->command = "git " + command;
 }
 
-string GitCommand::run() {
+string GitCommand::runCommand() {
     char buffer[128];
     std::string result = "";
     FILE* pipe = popen(command.c_str(), "r");
