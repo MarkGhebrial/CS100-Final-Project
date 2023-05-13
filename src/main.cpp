@@ -1,9 +1,13 @@
 #include <iostream>
 using std::cout;
+using std::cin;
 using std::endl;
 
 #include "git/gitCommand.h"
 #include "git/gitStatus.h"
+
+#include "ui/TerminalPrompt.h"
+#include "ui/YesOrNoPrompt.h"
 
 int main() {
     std::cout << "Hello, world!" << std::endl;
@@ -20,4 +24,11 @@ int main() {
     for (auto fileName : result.untrackedChanges) {
         cout << "Untracked change: " << fileName << endl;
     } 
+
+    YesOrNoPrompt prompt("Print hello world?", YesOrNo::YES);
+    auto promptResult = prompt.presentPrompt(cout, cin);
+
+    if (promptResult.yesOrNo == YesOrNo::YES) {
+        cout << "Hello world" << endl;
+    }
 }
