@@ -9,6 +9,6 @@ Makefile
 
 #Binaries
 /gb
-/test
+/tests
 
 /lib

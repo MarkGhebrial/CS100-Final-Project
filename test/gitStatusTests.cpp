@@ -3,7 +3,7 @@
 #include <string>
 using std::string;
 
-#include "../git/gitStatus.h"
+#include "../src/git/gitStatus.h"
 
 TEST(GitStatusParseTests, oneLine) {
     string gitOutput = " M CMakeLists.txt\n";

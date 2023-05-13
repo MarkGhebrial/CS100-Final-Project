@@ -10,14 +10,14 @@ add_executable(gb
     src/ui/YesOrNoPrompt.cpp
 )
 
-add_executable(test
-    src/test/tests.cpp
-    src/test/gitStatusTests.cpp
+add_executable(tests
+    test/tests.cpp
+    test/gitStatusTests.cpp
     src/git/gitCommand.cpp
     src/git/gitStatus.cpp
 )
 target_link_libraries(
-  test
+  tests
   GTest::gtest_main
 )
 
