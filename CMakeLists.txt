@@ -3,13 +3,20 @@ project(gitbuddy)
 
 add_executable(gb
     src/main.cpp
+    src/git/gitCommand.cpp
+    src/git/gitStatus.cpp
+
+    src/ui/YesOrNoPrompt.cpp
 )
 
-add_executable(test
-    src/test/tests.cpp
+add_executable(tests
+    test/tests.cpp
+    test/gitStatusTests.cpp
+    src/git/gitCommand.cpp
+    src/git/gitStatus.cpp
 )
 target_link_libraries(
-  test
+  tests
   GTest::gtest_main
 )
 

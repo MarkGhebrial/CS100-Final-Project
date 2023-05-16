@@ -8,7 +8,7 @@ Makefile
 /_deps
 
 #Binaries
-gb
-test
+/gb
+/tests
 
 /lib
