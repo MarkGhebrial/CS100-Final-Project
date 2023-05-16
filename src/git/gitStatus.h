@@ -2,7 +2,6 @@
 #define _GIT_STATUS_H_
 
 #include <vector>
-using std::vector;
 
 #include "gitCommand.h"
 
@@ -10,11 +9,11 @@ struct GitStatusResult {
     GitStatusResult();
 
     /// Construct a new GitStatusResult by parsing the output of "git status --porcelain=v1"
-    GitStatusResult(string gitOutput);
+    GitStatusResult(std::string gitOutput);
 
-    vector<string> unstagedChanges;
-    vector<string> stagedChanges;
-    vector<string> untrackedChanges;
+    std::vector<std::string> unstagedChanges;
+    std::vector<std::string> stagedChanges;
+    std::vector<std::string> untrackedChanges;
 };
 
 class GitStatus : GitCommand {

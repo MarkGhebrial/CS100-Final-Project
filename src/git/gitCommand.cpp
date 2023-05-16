@@ -1,15 +1,10 @@
 #include "gitCommand.h"
 
-#include <exception>
-
-#include <iostream>
-using std::cout;
-using std::endl;
-
-
 #include <stdio.h>
+#include <exception>
+#include <stdexcept>
 
-int BUFF_SIZE = 1000;
+using std::string;
 
 GitCommand::GitCommand(string command) {
     this->command = "git " + command;
