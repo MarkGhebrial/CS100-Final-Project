@@ -3,15 +3,19 @@
 
 #include <string>
 
-#include "TerminalPrompt.h"
+/// Enumerates "Yes" and "No"
+enum YesOrNo {
+    YES,
+    NO
+};
 
-class YesOrNoPrompt : public TerminalPrompt {
+class YesOrNoPrompt {
     public:
         YesOrNoPrompt(std::string prompt, YesOrNo defaultOption);
 
         /// @brief Presents a yes or no prompt to the user
         /// @return Their choice
-        TerminalPromptResult presentPrompt(std::ostream& out, std::istream& in);
+        YesOrNo presentPrompt(std::ostream& out, std::istream& in);
 
     private:
         std::string prompt;

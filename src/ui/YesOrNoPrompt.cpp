@@ -1,18 +1,17 @@
 #include "YesOrNoPrompt.h"
 
-using std::string;
+#include <iostream>
 using std::flush;
 using std::endl;
+
+using std::string;
 
 YesOrNoPrompt::YesOrNoPrompt(string prompt, YesOrNo defaultOption) :
     prompt(prompt),
     defaultOption(defaultOption)
 {}
 
-TerminalPromptResult YesOrNoPrompt::presentPrompt(std::ostream& out, std::istream& in) {
-    TerminalPromptResult result;
-    result.type = TerminalPromptResultType::YES_OR_NO;
-
+YesOrNo YesOrNoPrompt::presentPrompt(std::ostream& out, std::istream& in) {
     // Print the prompt
     out << prompt;
     if (defaultOption == YesOrNo::YES) out << " (Y/n): " << flush;
@@ -22,19 +21,16 @@ TerminalPromptResult YesOrNoPrompt::presentPrompt(std::ostream& out, std::istrea
     char input;
     in.get(input);
 
-    // If the input is empty, 
+    // If the user just presses enter
     if (input == '\n') {
-        result.yesOrNo = defaultOption;
-        return result;
+        return defaultOption;
     }
 
     if (input == 'Y' or input == 'y') {
-        result.yesOrNo = YesOrNo::YES;
-        return result;
+        return YesOrNo::YES;
     }
     if (input == 'N' or input == 'n') {
-        result.yesOrNo = YesOrNo::NO;
-        return result;
+        return YesOrNo::NO;
     }
 
     // Retry if the input is invalid

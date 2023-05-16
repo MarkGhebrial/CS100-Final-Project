@@ -6,8 +6,7 @@ using std::endl;
 #include "git/gitCommand.h"
 #include "git/gitStatus.h"
 
-#include "ui/TerminalPrompt.h"
-#include "ui/YesOrNoPrompt.h"
+#include "ui/prompts.h"
 
 int main() {
     std::cout << "Hello, world!" << std::endl;
@@ -28,7 +27,7 @@ int main() {
     YesOrNoPrompt prompt("Print hello world?", YesOrNo::YES);
     auto promptResult = prompt.presentPrompt(cout, cin);
 
-    if (promptResult.yesOrNo == YesOrNo::YES) {
+    if (promptResult == YesOrNo::YES) {
         cout << "Hello world" << endl;
     }
 }
