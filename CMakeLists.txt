@@ -12,6 +12,8 @@ add_executable(gb
 add_executable(tests
     test/tests.cpp
     test/gitStatusTests.cpp
+    test/StringPromptTests.cpp
+    test/YesOrNoPromptTests.cpp
     src/git/gitCommand.cpp
     src/git/gitStatus.cpp
 )
