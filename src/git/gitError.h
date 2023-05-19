@@ -12,7 +12,7 @@ class GitError : public std::exception
     public:
         GitError(GitErrorType error) { errorType = error; };
 
-        char * what (){
+        std::string what (){
             if (errorType == GIT_NOT_INSTALLED)
             {
                 return "Git not installed!";

@@ -1,4 +1,5 @@
 #include "gitCommand.h"
+#include "gitError.h"
 
 #include <stdio.h>
 #include <exception>
@@ -14,7 +15,7 @@ string GitCommand::runCommand() {
     char buffer[128];
     std::string result = "";
     FILE* pipe = popen(command.c_str(), "r");
-    if (pipe == nullptr) throw std::runtime_error("popen() failed!");
+    if (pipe == nullptr) throw GitError(GitErrorType::GIT_NOT_INSTALLED);
     try {
         while (fgets(buffer, sizeof buffer, pipe) != NULL) {
             result += buffer;

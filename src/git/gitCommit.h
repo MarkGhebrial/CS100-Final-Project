@@ -5,14 +5,6 @@
 
 #include "gitCommand.h"
 
-struct GitCommitResult
-{
-    GitCommitResult();
-
-    /// Construct a new GitCommitResult by parsing the output of running "git commit"
-    GitCommitResult(std::string gitOutput);
-};
-
 class GitCommit : public GitCommand {
     public:
         /// Default constructor that doesn't implement a commit message
@@ -22,7 +14,7 @@ class GitCommit : public GitCommand {
         /// Parameterized constructor that implements a user inputted commit message
         GitCommit(std::string commitMessage);
 
-        GitCommitResult run();
+        void run();
     private:
         std::string message;
 };
