@@ -5,12 +5,11 @@
 
 class StringPrompt {
     public:
-		StringPrompt();
-		StringPrompt(std::string prompt);
-        presentPrompt(std::ostream& out, std::istream& in);
+		  StringPrompt(std::string prompt);
+      presentPrompt(std::ostream& out, std::istream& in);
 
     private:
-		std::string prompt;
+		  std::string prompt;
 };
 
 #endif

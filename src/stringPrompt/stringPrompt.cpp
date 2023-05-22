@@ -1,12 +1,8 @@
 #include "stringPrompt.h"
-#include "../git/gitCommand.h"
 #include <string>
+#include <iostream>
 #include <fstream>
 using namespace std;
-
-StringPrompt(){
-    str = "";
-}
 
 StringPrompt::StringPrompt(string prompt) :
     prompt(prompt)
@@ -19,5 +15,5 @@ StringPrompt::presentPrompt(std::ostream& out, std::istream& in) {
     string message;
     in.getline(cin, message);
 
-    return presentPrompt(out, in);
+    return message;
 }
