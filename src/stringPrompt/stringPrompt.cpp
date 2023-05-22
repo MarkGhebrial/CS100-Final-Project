@@ -9,7 +9,7 @@ StringPrompt(){
 }
 
 StringPrompt::StringPrompt(string prompt) :
-    prompt(prompt),
+    prompt(prompt)
 {}
 
 StringPrompt::presentPrompt(std::ostream& out, std::istream& in) {
