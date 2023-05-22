@@ -4,6 +4,7 @@ using std::cin;
 using std::endl;
 
 #include "git/gitCommand.h"
+#include "git/gitPush.h"
 #include "git/gitStatus.h"
 
 #include "ui/prompts.h"
@@ -30,4 +31,7 @@ int main() {
     if (promptResult == YesOrNo::YES) {
         cout << "Hello world" << endl;
     }
+
+    GitPush push = GitPush();
+    push.run();
 }

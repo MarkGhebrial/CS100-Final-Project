@@ -1,8 +1,6 @@
 #ifndef _GIT_COMMIT_H_
 #define _GIT_COMMIT_H_
 
-#include <vector>
-
 #include "gitCommand.h"
 
 class GitCommit : public GitCommand {
