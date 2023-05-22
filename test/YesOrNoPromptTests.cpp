@@ -6,7 +6,7 @@
 
 using namespace std;
 
-TEST (YesOrNoPromptTests, testIO) {
+TEST (YesOrNoPromptTests, testYes) {
     ostringstream out; // This will hold what the prompt prints
     istringstream in("yes\n"); // This is what the user types
 
@@ -17,7 +17,7 @@ TEST (YesOrNoPromptTests, testIO) {
     EXPECT_EQ(result, YesOrNo::YES); // Check that it returned the right thing
 }
 
-TEST (YesOrNoPromptTests, testIO) {
+TEST (YesOrNoPromptTests, testNo) {
     ostringstream out; // This will hold what the prompt prints
     istringstream in("no\n"); // This is what the user types
 
@@ -28,7 +28,7 @@ TEST (YesOrNoPromptTests, testIO) {
     EXPECT_EQ(result, YesOrNo::NO); // Check that it returned the right thing
 }
 
-TEST (YesOrNoPromptTests, testIO) {
+TEST (YesOrNoPromptTests, testInvalid) {
     ostringstream out; // This will hold what the prompt prints
     string messageNotYesOrNot;
     istringstream in(messageNotYesOrNot); // This is what the user types
