@@ -18,8 +18,9 @@ YesOrNo YesOrNoPrompt::presentPrompt(std::ostream& out, std::istream& in) {
     else out << " (y/N): " << flush;
 
     // Get input from the user
-    char input;
-    in.get(input);
+    string line;
+    getline(in, line);
+    char input = line[0];
 
     // If the user just presses enter
     if (input == '\n') {
