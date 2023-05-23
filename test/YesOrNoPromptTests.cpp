@@ -38,4 +38,5 @@ TEST (YesOrNoPromptTests, testInvalidInput) {
 
     EXPECT_EQ(out.str(), "This is a test prompt (y/N): Invalid input\nThis is a test prompt (y/N): ");
     EXPECT_EQ(result, YesOrNo::YES);
+
 }
