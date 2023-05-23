@@ -32,6 +32,7 @@ TEST (YesOrNoPromptTests, testInvalid) {
     ostringstream out; // This will hold what the prompt prints
     string messageNotYesOrNot;
     istringstream in(messageNotYesOrNot); // This is what the user types
+    out << messageNotYesOrNot;
     if (messageNotYesOrNot != "yes\n" || messageNotYesOrNot != "no\n"){
         EXPECT_EQ(out.str(), "Invalid input"); // Check that it printed the right thing
     }
