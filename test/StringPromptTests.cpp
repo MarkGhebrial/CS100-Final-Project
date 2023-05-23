@@ -5,18 +5,12 @@
 #include <sstream>
 using namespace std;
 
-TEST (stringPromptTests, testInputTillNewline) {
+TEST (stringPromptTests, testInputTillNewlineEntered) {
     ostringstream out; // This will hold what the prompt prints
-    string message;
-    istringstream in(message); // This is what the user types
-    out << message;
-    EXPECT_EQ(out.str(), message); // Check that it printed the right thing
-}
+    istringstream in("MarkTheCSGod\n"); // This is what the user types
 
-TEST (stringPromptTests, testInputNewlineOnly) {
-    ostringstream out; // This will hold what the prompt prints
-    string message = "\n";
-    istringstream in(message); // This is what the user types
-    out << message;
-    EXPECT_EQ(out.str(), ""); // Check that it printed the right thing
+    StringPrompt prompt("This is a test string prompt");
+    std::string result = prompt.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "This is a test string prompt: MarkTheCSGod\n");
 }
