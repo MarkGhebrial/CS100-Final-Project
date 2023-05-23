@@ -15,6 +15,7 @@ add_executable(tests
     test/StringPromptTests.cpp
     test/YesOrNoPromptTests.cpp
     src/ui/YesOrNoPrompt.cpp
+    src/stringPrompt/stringPrompt.cpp
     src/git/gitCommand.cpp
     src/git/gitStatus.cpp
 )
