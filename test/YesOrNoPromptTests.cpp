@@ -11,7 +11,7 @@ TEST (YesOrNoPromptTests, testYes) {
     istringstream in("yes\n"); // This is what the user types
 
     YesOrNoPrompt prompt("This is a test prompt", YesOrNo::YES);
-    YyeOrNo result = prompt.presentPrompt(out, in);
+    YesOrNo result = prompt.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "This is a test prompt (Y/n): "); // Check that it printed the right thing
     EXPECT_EQ(result, YesOrNo::YES); // Check that it returned the right thing
@@ -22,7 +22,7 @@ TEST (YesOrNoPromptTests, testNo) {
     istringstream in("no\n"); // This is what the user types
 
     YesOrNoPrompt prompt("This is a test prompt", YesOrNo::NO);
-    YyeOrNo result = prompt.presentPrompt(out, in);
+    YesOrNo result = prompt.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "This is a test prompt (Y/n): "); // Check that it printed the right thing
     EXPECT_EQ(result, YesOrNo::NO); // Check that it returned the right thing
