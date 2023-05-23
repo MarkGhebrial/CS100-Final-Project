@@ -1,7 +1,8 @@
 #include <gtest/gtest.h>
-#include "../src/stringPrompt/stringPrompt.h"
+#include "../src/ui/stringPrompt.h"
 #include <string>
 #include <fstream>
+#include <sstream>
 using namespace std;
 
 TEST (stringPromptTests, testInputTillNewline) {

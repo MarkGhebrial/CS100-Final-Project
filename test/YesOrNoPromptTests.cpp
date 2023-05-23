@@ -1,6 +1,7 @@
 #include <gtest/gtest.h>
 #include <string>
 #include <fstream>
+#include <sstream>
 
 #include "../src/ui/YesOrNoPrompt.h"
 

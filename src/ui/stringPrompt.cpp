@@ -1,7 +1,8 @@
-#include "stringPrompt.h"
+#include "..src/ui/stringPrompt.h"
 #include <string>
 #include <iostream>
 #include <fstream>
+#include <sstream>
 using namespace std;
 
 StringPrompt::StringPrompt(string prompt) :
