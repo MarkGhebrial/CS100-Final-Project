@@ -12,8 +12,8 @@ add_executable(gb
 add_executable(tests
     test/tests.cpp
     test/gitStatusTests.cpp
-    test/StringPromptTests.cpp
     test/YesOrNoPromptTests.cpp
+    test/StringPromptTests.cpp
     src/ui/YesOrNoPrompt.cpp
     src/ui/stringPrompt.cpp
     src/git/gitCommand.cpp
