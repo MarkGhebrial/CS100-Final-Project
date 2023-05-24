@@ -12,6 +12,6 @@ TEST (stringPromptTests, testInputTillNewlineEntered) {
     StringPrompt prompt("This is a test string prompt");
     std::string result = prompt.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "This is a test string prompt: MarkTheCSGod\n");
-    EXPECT_EQ(result, out.str());
+    EXPECT_EQ(out.str(), "This is a test string prompt: ");
+    EXPECT_EQ(result, "This is a test string prompt: MarkTheCSGod\n");
 }

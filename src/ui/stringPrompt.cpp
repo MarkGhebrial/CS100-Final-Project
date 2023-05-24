@@ -14,6 +14,6 @@ std::string StringPrompt::presentPrompt(std::ostream& out, std::istream& in) {
     // Get string input from the user
     string message;
     getline(in, message);
-    char input = message[0];
+
     return presentPrompt(out, in);
 }
