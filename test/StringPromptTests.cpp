@@ -5,7 +5,7 @@
 #include <sstream>
 using namespace std;
 
-//How to handle no input (empty string input, enter)
+//No input (empty string input, enter), return empty string
 TEST (stringPromptTests, testNoInput) {
     ostringstream out; // This will hold what the prompt prints
     istringstream in("\n"); // This is what the user types
