@@ -6,19 +6,6 @@
 
 using namespace std;
 
-// class Menu {
-//     private:
-//         const int yOffsetLines = 2;
-//         const int xOffsetCols = 4;
-//         int row = 0;
-//         //helper function for select options that displays menu
-//         void generateMenu(const vector <string>&);
-
-//     public:
-//         //modifies the bool vector that you pass in
-//         void selectOptions(const vector <string>&, vector <bool>&); 
-// };
-
 void Menu::generateMenu(const vector <string>& menuPrompts){
     clrscr();
     cout << "Menu prompt:" << endl;
