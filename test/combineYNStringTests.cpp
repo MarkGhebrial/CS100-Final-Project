@@ -4,13 +4,13 @@
 #include <fstream>
 #include <sstream>
 #include "../src/ui/stringPrompt.h"
-#include "../src/ui/combineYNString.h"
+#include "../src/ui/YesOrNoPrompt.h"
 
 using namespace std;
 
 ///Scenarios Tests
-//Created Branch : YES : Enter Branch Name : String
-//Enter commit message : String : Sync changes with remote : YES
+//Created Branch : YES :: Enter Branch Name : String
+//Enter commit message : String :: Sync changes with remote : YES
 
 /*
 TEST (stringPromptTests, testSingleWordInput) {
@@ -35,3 +35,49 @@ TEST (YesOrNoPromptTests, testYes) {
     EXPECT_EQ(result, YesOrNo::YES); // Check that it returned the right thing
 }
 */
+
+///Scenario Test 1
+//Created Branch : YES :: Enter Branch Name : String
+TEST (combineYNStringTests, ScenarioTest1) {
+    //Created Branch : YES
+    ostringstream out;
+    istringstream in1("yes\n");
+
+    YesOrNoPrompt prompt1("Create Branch?", YesOrNo::YES);
+    YesOrNo result1 = prompt1.presentPrompt(out, in1);
+
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): ");
+    EXPECT_EQ(result1, YesOrNo::YES);
+
+    //Enter Branch Name : String                        
+    istringstream in2("MarkTheCSGod\n");                  
+
+    StringPrompt prompt2("Enter Branch Name: ");
+    std::string result2 = prompt2.presentPrompt(out, in2);
+
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : ");
+    EXPECT_EQ(result2, "MarkTheCSGod");
+}
+
+///Scenario Test 2
+//Enter commit message : String :: Sync changes with remote : YES
+TEST (combineYNStringTests, ScenarioTest2) {
+    //Enter commit message : String
+    ostringstream out;          
+    istringstream in1("MarkTheCSGod\n");                  
+
+    StringPrompt prompt1("Enter commit message: ");
+    std::string result1 = prompt1.presentPrompt(out, in1);
+
+    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(result1, "MarkTheCSGod");  
+
+    //Sync changes with remote : YES 
+    istringstream in2("yes\n");
+
+    YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::YES);
+    YesOrNo result2 = prompt2.presentPrompt(out, in2);
+
+    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (Y/n): ");
+    EXPECT_EQ(result2, YesOrNo::YES);
+}
