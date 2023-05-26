@@ -5,17 +5,7 @@
 #include <sstream>
 using namespace std;
 
-TEST (stringPromptTests, testInputTillNewlineEntered) {
-    ostringstream out; // This will hold what the prompt prints
-    istringstream in("Mark is THE CS god\n"); // This is what the user types
-
-    StringPrompt prompt("This is a test string prompt");
-    std::string result = prompt.presentPrompt(out, in);
-
-    EXPECT_EQ(out.str(), "This is a test string prompt: ");
-    EXPECT_EQ(result, "Mark is THE CS god");
-}
-
+//How to handle no input (empty string input, enter)
 TEST (stringPromptTests, testNoInput) {
     ostringstream out; // This will hold what the prompt prints
     istringstream in("\n"); // This is what the user types
@@ -25,4 +15,28 @@ TEST (stringPromptTests, testNoInput) {
 
     EXPECT_EQ(out.str(), "This is a test string prompt: ");
     EXPECT_EQ(result, "");
+}
+
+//Check if input is in effect
+TEST (stringPromptTests, testSingleWordInput) {
+    ostringstream out; // This will hold what the prompt prints
+    istringstream in("MarkTheCSGod\n"); // This is what the user types
+
+    StringPrompt prompt("This is a test string prompt");
+    std::string result = prompt.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "This is a test string prompt: ");
+    EXPECT_EQ(result, "MarkTheCSGod");
+}
+
+//Check if input and getline is in effect
+TEST (stringPromptTests, testMultipleWordsInput) {
+    ostringstream out; // This will hold what the prompt prints
+    istringstream in("Mark is THE CS god\n"); // This is what the user types
+
+    StringPrompt prompt("This is a test string prompt");
+    std::string result = prompt.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "This is a test string prompt: ");
+    EXPECT_EQ(result, "Mark is THE CS god");
 }
