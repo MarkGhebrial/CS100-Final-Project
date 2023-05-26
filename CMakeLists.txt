@@ -5,13 +5,17 @@ add_executable(gb
     src/main.cpp
     src/git/gitCommand.cpp
     src/git/gitStatus.cpp
-
+    src/ui/stringPrompt.cpp
     src/ui/YesOrNoPrompt.cpp
 )
 
 add_executable(tests
     test/tests.cpp
     test/gitStatusTests.cpp
+    test/YesOrNoPromptTests.cpp
+    test/StringPromptTests.cpp
+    src/ui/YesOrNoPrompt.cpp
+    src/ui/stringPrompt.cpp
     src/git/gitCommand.cpp
     src/git/gitStatus.cpp
 )
