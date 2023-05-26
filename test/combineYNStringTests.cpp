@@ -8,6 +8,18 @@
 
 using namespace std;
 
+//Descriptions of combineYNStringTests.cpp -
+///// Two main Scenarios -
+////    1. Create Branch / Branch Name  
+////    2. Enter commit message / Sync changes with remote
+///// Variables - YES/NO from YesOrNoPrompt; String/Empty String from StringPrompt
+///    Two variables Tests -
+//      1. Created Branch : YES :: Enter Branch Name : String
+//      2. Enter commit message : String :: Sync changes with remote : YES
+///    Three variables Tests -
+//      1. Created Branch : YES :: Enter Branch Name : String :: Sync changes with remote : YES
+
+
 ///Scenario Test 1
 //Created Branch : NO :X: Enter Branch Name : String
 //Check if YesOrNoPrompt is in effect in combineYNStringTests.cpp
@@ -170,4 +182,124 @@ TEST (combineYNStringTests, ScenarioTest8) {
 
     EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (y/N): ");
     EXPECT_EQ(result2, YesOrNo::NO);
+}
+
+/*****
+/////Adding a third variable of the scenarios to test
+*****/
+
+///Scenario Test 9
+//Created Branch : YES :: Enter Branch Name : String :: Sync changes with remote : YES
+TEST (combineYNStringTests, ScenarioTest9) {
+    //Created Branch : YES
+    ostringstream out;
+    istringstream in("yes\nMarkIsBeingModest\nyes\n");
+
+    YesOrNoPrompt prompt1("Create Branch?", YesOrNo::YES);
+    YesOrNo result1 = prompt1.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): ");
+    EXPECT_EQ(result1, YesOrNo::YES);
+
+    //Enter Branch Name : String                                        
+    StringPrompt prompt2("Enter Branch Name: ");
+    std::string result2 = prompt2.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : ");
+    EXPECT_EQ(result2, "MarkIsBeingModest");
+
+    //Sync changes with remote : YES 
+    YesOrNoPrompt prompt3("Sync changes with remote?", YesOrNo::YES);
+    YesOrNo result3 = prompt3.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : Sync changes with remote? (Y/n): ");
+    EXPECT_EQ(result3, YesOrNo::YES);
+}
+
+
+///Scenario Test 10
+//Created Branch : YES :: Enter Branch Name : Empty String :: Sync changes with remote : YES
+//Empty String - The user entered an enter as the second input
+TEST (combineYNStringTests, ScenarioTest10) {
+    //Created Branch : YES
+    ostringstream out;
+    istringstream in("yes\n\nyes\n");
+
+    YesOrNoPrompt prompt1("Create Branch?", YesOrNo::YES);
+    YesOrNo result1 = prompt1.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): ");
+    EXPECT_EQ(result1, YesOrNo::YES);
+
+    //Enter Branch Name : Empty String                                        
+    StringPrompt prompt2("Enter Branch Name: ");
+    std::string result2 = prompt2.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : ");
+    EXPECT_EQ(result2, "");
+
+    //Sync changes with remote : YES 
+    YesOrNoPrompt prompt3("Sync changes with remote?", YesOrNo::YES);
+    YesOrNo result3 = prompt3.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : Sync changes with remote? (Y/n): ");
+    EXPECT_EQ(result3, YesOrNo::YES);
+}
+
+///Scenario Test 11
+//Created Branch : YES :: Enter Branch Name : String :: Sync changes with remote : NO
+TEST (combineYNStringTests, ScenarioTest11) {
+    //Created Branch : YES
+    ostringstream out;
+    istringstream in("yes\nMarkIsBeingModest\nno\n");
+
+    YesOrNoPrompt prompt1("Create Branch?", YesOrNo::YES);
+    YesOrNo result1 = prompt1.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): ");
+    EXPECT_EQ(result1, YesOrNo::YES);
+
+    //Enter Branch Name : String                                        
+    StringPrompt prompt2("Enter Branch Name: ");
+    std::string result2 = prompt2.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : ");
+    EXPECT_EQ(result2, "MarkIsBeingModest");
+
+    //Sync changes with remote : NO 
+    YesOrNoPrompt prompt3("Sync changes with remote?", YesOrNo::NO);
+    YesOrNo result3 = prompt3.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : Sync changes with remote? (y/N): ");
+    EXPECT_EQ(result3, YesOrNo::NO);
+}
+
+
+///Scenario Test 12
+//Created Branch : YES :: Enter Branch Name : Empty String :: Sync changes with remote : NO
+//Empty String - The user entered an enter as the second input
+TEST (combineYNStringTests, ScenarioTest12) {
+    //Created Branch : YES
+    ostringstream out;
+    istringstream in("yes\n\nno\n");
+
+    YesOrNoPrompt prompt1("Create Branch?", YesOrNo::YES);
+    YesOrNo result1 = prompt1.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): ");
+    EXPECT_EQ(result1, YesOrNo::YES);
+
+    //Enter Branch Name : String                                        
+    StringPrompt prompt2("Enter Branch Name: ");
+    std::string result2 = prompt2.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : ");
+    EXPECT_EQ(result2, "");
+
+    //Sync changes with remote : NO 
+    YesOrNoPrompt prompt3("Sync changes with remote?", YesOrNo::NO);
+    YesOrNo result3 = prompt3.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : Sync changes with remote? (y/N): ");
+    EXPECT_EQ(result3, YesOrNo::NO);
 }
