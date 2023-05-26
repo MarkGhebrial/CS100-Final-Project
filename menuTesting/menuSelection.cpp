@@ -6,51 +6,67 @@ using namespace std;
 
 class Menu {
     private:
+        const int yOffsetLines = 2;
+        const int xOffsetCols = 4;
+        int row = 0;
+        //helper function for select options that displays menu
+        void generateMenu(const vector <string>&);
 
     public:
-     //User passes in a vector of prompts and it creates a menu
-    generateMenu(vector <string>); 
-
+        //modifies the bool vector that you pass in
+        void selectOptions(const vector <string>&, vector <bool>&); 
 };
 
-Menu::generateMenu(vector <string> menuPrompts){
+void Menu::generateMenu(const vector <string>& menuPrompts){
     clrscr();
     cout << "Menu prompt:" << endl;
-
-//What should it do if it get sent an empty vector?
-//What should it do if it get sent a vector of a different type?
 
     for (int i = 0; i < menuPrompts.size(); i++) {
         cout << "  [ ] " << menuPrompts.at(i) << endl;
     }
+
     //Sets user cursor inside []
-    gotoxy(4,2);
+    gotoxy(xOffsetCols,yOffsetLines);
+
+    //Should I list out how to use the menu in the terminal like movement with arrows, 
+    //selection with space and enter to quit the program
 }
 
-
-   
-
-
- 
-    
+void Menu::selectOptions(const vector <string> &menuPrompts, vector <bool>& userSelection){
+    generateMenu(menuPrompts);
     char input = getch();
-
-    //This function checks the user input to see if they enter space or enter
-    //If the hit space, we will check the box, if they hit enter, we exit the program
     while (input != 10) {
-        if (input == 32) { //space
-            wherey()
-            //If it is already selected, deselect it
-            if () {
-                
+        if (input == 65) {   // move cursor up with up arrow
+            row -= 1;
+            if (row < 0) {
+                row = 0;
             }
-
-
-            cursorLocY = wherey();
-            cout << "X";
-            gotoxy(4,cursorLocY);
-        //needs to be modified since it moves cursor one to right
+            gotoxy(xOffsetCols,row + yOffsetLines);
+        }
+        else if (input == 66) {     // move cursor down with down arrow
+            row += 1;
+            if (row > menuPrompts.size() - 1) {
+                row = menuPrompts.size() - 1;
+            }
+            gotoxy(xOffsetCols,row + yOffsetLines);
+        }
+        else if (input == 32) { // user selection with space
+            if (userSelection.at(row) == false) {
+                userSelection.at(row) = true;
+                cout << "X";
+            }
+            else {
+                userSelection.at(row) = false;
+                cout << " ";
+            }
+            gotoxy(xOffsetCols,row + yOffsetLines);       
         }
         input = getch();
     }
     clrscr();
+}
+
+
+ 
+    
+    
