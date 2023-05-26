@@ -4,20 +4,31 @@
 #include <string>
 
 using std::string;
+#include <iostream>
+#include <sstream>
+using std::string;
+using std::istringstream;
+
 
 void GitPush::run()
 {
     string output = runCommand();
-    pushFailed(output);
+    checkForErrors(output);
 }
 
-void GitPush::pushFailed(string runOutput)
+void GitPush::checkForErrors(string output)
 {
-    for (char& character : runOutput)
+    istringstream stream(output);
+
+    string line = "";
+    string str;
+    while (getline(stream, line))
     {
-        if (character == '!')
-        {
-            throw GitError(GitErrorType::GIT_FAILED_TO_PUSH);
-        }
+        str = line.substr(0, 5);
+    }
+
+    if (str == "error" || str == "fatal")
+    {
+        throw GitError(GitErrorType::GIT_FAILED_TO_PUSH);
     }
 }

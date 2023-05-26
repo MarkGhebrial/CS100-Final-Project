@@ -10,7 +10,7 @@ class GitPush : public GitCommand
         GitPush() : GitCommand("push --porcelain") { };
 
         void run();
-        void pushFailed(std::string runOutput);
+        void checkForErrors(std::string runOutput);
 };
 
 #endif
