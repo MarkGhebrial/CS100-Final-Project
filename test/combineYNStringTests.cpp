@@ -41,19 +41,17 @@ TEST (YesOrNoPromptTests, testYes) {
 TEST (combineYNStringTests, ScenarioTest1) {
     //Created Branch : YES
     ostringstream out;
-    istringstream in1("yes\n");
+    istringstream in("yes\nMarkTheCSGod\n");
 
     YesOrNoPrompt prompt1("Create Branch?", YesOrNo::YES);
-    YesOrNo result1 = prompt1.presentPrompt(out, in1);
+    YesOrNo result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Create Branch? (Y/n): ");
     EXPECT_EQ(result1, YesOrNo::YES);
 
-    //Enter Branch Name : String                        
-    istringstream in2("MarkTheCSGod\n");                  
-
+    //Enter Branch Name : String                                        
     StringPrompt prompt2("Enter Branch Name: ");
-    std::string result2 = prompt2.presentPrompt(out, in2);
+    std::string result2 = prompt2.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : ");
     EXPECT_EQ(result2, "MarkTheCSGod");
@@ -64,19 +62,17 @@ TEST (combineYNStringTests, ScenarioTest1) {
 TEST (combineYNStringTests, ScenarioTest2) {
     //Enter commit message : String
     ostringstream out;          
-    istringstream in1("MarkTheCSGod\n");                  
+    istringstream in("MarkTheCSGod\nyes\n");                  
 
     StringPrompt prompt1("Enter commit message: ");
-    std::string result1 = prompt1.presentPrompt(out, in1);
+    std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: : ");
     EXPECT_EQ(result1, "MarkTheCSGod");  
 
     //Sync changes with remote : YES 
-    istringstream in2("yes\n");
-
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::YES);
-    YesOrNo result2 = prompt2.presentPrompt(out, in2);
+    YesOrNo result2 = prompt2.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (Y/n): ");
     EXPECT_EQ(result2, YesOrNo::YES);
