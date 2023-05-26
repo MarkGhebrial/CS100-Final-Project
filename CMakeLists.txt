@@ -7,6 +7,7 @@ add_executable(gb
     src/git/gitStatus.cpp
     src/ui/stringPrompt.cpp
     src/ui/YesOrNoPrompt.cpp
+    src/ui/combineYNString.cpp
 )
 
 add_executable(tests
@@ -14,6 +15,8 @@ add_executable(tests
     test/gitStatusTests.cpp
     test/YesOrNoPromptTests.cpp
     test/StringPromptTests.cpp
+    test/combineYNStringTests.cpp
+    src/ui/combineYNString.cpp
     src/ui/YesOrNoPrompt.cpp
     src/ui/stringPrompt.cpp
     src/git/gitCommand.cpp
