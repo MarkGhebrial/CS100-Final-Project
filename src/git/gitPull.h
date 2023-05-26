@@ -7,10 +7,10 @@ class GitPull : public GitCommand
 {
     public:
         /// Create a new GitPull object
-        GitPull() : GitCommand("pull --porcelain") { };
+        GitPull() : GitCommand("pull") { };
 
         void run();
-        void pullFailed(std::string runOutput);
+        void checkForErrors(std::string runOutput);
     private:
         std::string message;
 };

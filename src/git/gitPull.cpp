@@ -1,39 +1,30 @@
 #include "gitPull.h"
 #include "gitError.h"
 
-#include <vector>
 #include <string>
+#include <iostream>
+#include <sstream>
+using std::string;
+using std::istringstream;
 
 void GitPull::run()
 {
-    std::string output = runCommand();
+    string output = runCommand();
+    checkForErrors(output);
 }
 
-void GitPull::pullFailed(std::string output)
+void GitPull::checkForErrors(std::string output)
 {
-    std::vector<char> v;
-    std::string err = "error";
-    for (unsigned i = 0; i < 5; i++)
+    istringstream stream(output);
+
+    string line = "";
+    string str;
+    while (getline(stream, line))
     {
-        v.push_back(output[i]);
+        str = line.substr(0, 5);
     }
 
-    int count = 0;
-    unsigned index = 0;
-    for (char& character : err)
-    {
-        if (character == v.at(index))
-        {
-            count++;
-        }
-        else
-        {
-            break;
-        }
-        index++;
-    }
-
-    if (count == 5)
+    if (str == "error" || str == "fatal")
     {
         throw GitError(GitErrorType::GIT_FAILED_TO_PULL);
     }

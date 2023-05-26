@@ -10,8 +10,8 @@ TEST(GitPullTests, oneLine)
     GitPull olPull = GitPull();
 
     string output = "error: failed to pull!";
-    EXPECT_THROW(olPull.pullFailed(output), string*);
+    EXPECT_THROW(olPull.checkForErrors(output), string*);
 
     output = "  error: failed to pull!";
-    EXPECT_THROW(olPull.pullFailed(output), string*);
+    EXPECT_THROW(olPull.checkForErrors(output), string*);
 }
