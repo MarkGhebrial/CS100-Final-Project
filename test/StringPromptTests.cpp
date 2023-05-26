@@ -7,11 +7,22 @@ using namespace std;
 
 TEST (stringPromptTests, testInputTillNewlineEntered) {
     ostringstream out; // This will hold what the prompt prints
-    istringstream in("Mark is not a CS god\n"); // This is what the user types
+    istringstream in("Mark is THE CS god\n"); // This is what the user types
 
     StringPrompt prompt("This is a test string prompt");
     std::string result = prompt.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "This is a test string prompt: ");
-    EXPECT_EQ(result, "Mark is not a CS god");
+    EXPECT_EQ(result, "Mark is THE CS god");
+}
+
+TEST (stringPromptTests, testNoInput) {
+    ostringstream out; // This will hold what the prompt prints
+    istringstream in("\n"); // This is what the user types
+
+    StringPrompt prompt("This is a test string prompt");
+    std::string result = prompt.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "This is a test string prompt: ");
+    EXPECT_EQ(result, "");
 }
