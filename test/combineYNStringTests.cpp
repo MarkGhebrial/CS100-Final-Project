@@ -289,7 +289,7 @@ TEST (combineYNStringTests, ScenarioTest12) {
     EXPECT_EQ(out.str(), "Create Branch? (Y/n): ");
     EXPECT_EQ(result1, YesOrNo::YES);
 
-    //Enter Branch Name : String                                        
+    //Enter Branch Name : Empty String                                        
     StringPrompt prompt2("Enter Branch Name: ");
     std::string result2 = prompt2.presentPrompt(out, in);
 
@@ -302,4 +302,70 @@ TEST (combineYNStringTests, ScenarioTest12) {
 
     EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : Sync changes with remote? (y/N): ");
     EXPECT_EQ(result3, YesOrNo::NO);
+}
+
+///Scenario Test 13
+//Created Branch : NO :: Enter Branch Name : String :: Sync changes with remote : YES
+//Since the branch is not created, it doesn't proceed to the next part.
+//* Next part - Enter Branch Name : String :: Sync changes with remote : YES
+TEST (combineYNStringTests, ScenarioTest13) {
+    //Created Branch : NO
+    ostringstream out;
+    istringstream in("no\nMarkTheCSGod\nyes\n");
+
+    YesOrNoPrompt prompt1("Create Branch?", YesOrNo::NO);
+    YesOrNo result1 = prompt1.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (y/N): ");
+    EXPECT_EQ(result1, YesOrNo::NO);
+}
+
+///Scenario Test 14
+//Created Branch : NO :: Enter Branch Name : Empty String :: Sync changes with remote : YES
+//Empty String - The user entered an enter as the second input
+//Since the branch is not created, it doesn't proceed to the next part.
+//* Next part - Enter Branch Name : String :: Sync changes with remote : YES
+TEST (combineYNStringTests, ScenarioTest14) {
+    //Created Branch : NO
+    ostringstream out;
+    istringstream in("no\n\nyes\n");
+
+    YesOrNoPrompt prompt1("Create Branch?", YesOrNo::NO);
+    YesOrNo result1 = prompt1.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (y/N): ");
+    EXPECT_EQ(result1, YesOrNo::NO);
+}
+
+///Scenario Test 15
+//Created Branch : NO :: Enter Branch Name : String :: Sync changes with remote : NO
+//Since the branch is not created, it doesn't proceed to the next part.
+//* Next part - Enter Branch Name : String :: Sync changes with remote : NO
+TEST (combineYNStringTests, ScenarioTest15) {
+    //Created Branch : NO
+    ostringstream out;
+    istringstream in("no\nMarkTheCSGod\nno\n");
+
+    YesOrNoPrompt prompt1("Create Branch?", YesOrNo::NO);
+    YesOrNo result1 = prompt1.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (y/N): ");
+    EXPECT_EQ(result1, YesOrNo::NO);
+}
+
+///Scenario Test 16
+//Created Branch : NO :: Enter Branch Name : Empty String :: Sync changes with remote : NO
+//Empty String - The user entered an enter as the second input
+//Since the branch is not created, it doesn't proceed to the next part.
+//* Next part - Enter Branch Name : String :: Sync changes with remote : NO
+TEST (combineYNStringTests, ScenarioTest16) {
+    //Created Branch : NO
+    ostringstream out;
+    istringstream in("no\n\nno\n");
+
+    YesOrNoPrompt prompt1("Create Branch?", YesOrNo::NO);
+    YesOrNo result1 = prompt1.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "Create Branch? (y/N): ");
+    EXPECT_EQ(result1, YesOrNo::NO);
 }
