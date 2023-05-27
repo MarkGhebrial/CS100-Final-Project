@@ -20,7 +20,7 @@ using namespace std;
 //      1. Created Branch : YES :: Enter Branch Name : String :: Sync changes with remote : YES
 //      2. Enter commit message : String :: Sync changes with remote : YES :: Apply changes : YES
 //          (a. No sync, No apply; b. No sync, Yes apply, still allow applying)
-
+/* Currently at 28 tests. Can definitely add more tests with more scenarios or more variables */
 
 ///Scenario Test 1
 //Created Branch : NO :X: Enter Branch Name : String
