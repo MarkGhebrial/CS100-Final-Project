@@ -13,7 +13,7 @@ TEST (stringPromptTests, testNoInput) {
     StringPrompt prompt("This is a test string prompt");
     std::string result = prompt.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "This is a test string prompt: ");
+    EXPECT_EQ(out.str(), "This is a test string prompt");
     EXPECT_EQ(result, "");
 }
 
@@ -25,7 +25,7 @@ TEST (stringPromptTests, testSingleWordInput) {
     StringPrompt prompt("This is a test string prompt");
     std::string result = prompt.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "This is a test string prompt: ");
+    EXPECT_EQ(out.str(), "This is a test string prompt");
     EXPECT_EQ(result, "MarkTheCSGod");
 }
 
@@ -37,6 +37,6 @@ TEST (stringPromptTests, testMultipleWordsInput) {
     StringPrompt prompt("This is a test string prompt");
     std::string result = prompt.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "This is a test string prompt: ");
+    EXPECT_EQ(out.str(), "This is a test string prompt");
     EXPECT_EQ(result, "Mark is THE CS god");
 }
