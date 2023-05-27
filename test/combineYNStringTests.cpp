@@ -74,7 +74,7 @@ TEST (combineYNStringTests, ScenarioTest3) {
     StringPrompt prompt2("Enter Branch Name: ");
     std::string result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : ");
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: ");
     EXPECT_EQ(result2, "MarkTheCSGod");
 }
 
@@ -96,7 +96,7 @@ TEST (combineYNStringTests, ScenarioTest4) {
     StringPrompt prompt2("Enter Branch Name: ");
     std::string result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : ");
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: ");
     EXPECT_EQ(result2, "");
 }
 
@@ -110,14 +110,14 @@ TEST (combineYNStringTests, ScenarioTest5) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "MarkTheCSGod");  
 
     //Sync changes with remote : YES 
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::YES);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (Y/n): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (Y/n): ");
     EXPECT_EQ(result2, YesOrNo::YES);
 }
 
@@ -132,14 +132,14 @@ TEST (combineYNStringTests, ScenarioTest6) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "");  
 
     //Sync changes with remote : YES 
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::YES);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (Y/n): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (Y/n): ");
     EXPECT_EQ(result2, YesOrNo::YES);
 }
 
@@ -153,14 +153,14 @@ TEST (combineYNStringTests, ScenarioTest7) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "MarkTheCSGod");  
 
     //Sync changes with remote : NO 
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::NO);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (y/N): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (y/N): ");
     EXPECT_EQ(result2, YesOrNo::NO);
 }
 
@@ -175,14 +175,14 @@ TEST (combineYNStringTests, ScenarioTest8) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "");  
 
     //Sync changes with remote : NO 
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::NO);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (y/N): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (y/N): ");
     EXPECT_EQ(result2, YesOrNo::NO);
 }
 
@@ -207,14 +207,14 @@ TEST (combineYNStringTests, ScenarioTest9) {
     StringPrompt prompt2("Enter Branch Name: ");
     std::string result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : ");
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: ");
     EXPECT_EQ(result2, "MarkIsBeingModest");
 
     //Sync changes with remote : YES 
     YesOrNoPrompt prompt3("Sync changes with remote?", YesOrNo::YES);
     YesOrNo result3 = prompt3.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : Sync changes with remote? (Y/n): ");
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: Sync changes with remote? (Y/n): ");
     EXPECT_EQ(result3, YesOrNo::YES);
 }
 
@@ -237,14 +237,14 @@ TEST (combineYNStringTests, ScenarioTest10) {
     StringPrompt prompt2("Enter Branch Name: ");
     std::string result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : ");
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: ");
     EXPECT_EQ(result2, "");
 
     //Sync changes with remote : YES 
     YesOrNoPrompt prompt3("Sync changes with remote?", YesOrNo::YES);
     YesOrNo result3 = prompt3.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : Sync changes with remote? (Y/n): ");
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: Sync changes with remote? (Y/n): ");
     EXPECT_EQ(result3, YesOrNo::YES);
 }
 
@@ -265,14 +265,14 @@ TEST (combineYNStringTests, ScenarioTest11) {
     StringPrompt prompt2("Enter Branch Name: ");
     std::string result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : ");
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: ");
     EXPECT_EQ(result2, "MarkIsBeingModest");
 
     //Sync changes with remote : NO 
     YesOrNoPrompt prompt3("Sync changes with remote?", YesOrNo::NO);
     YesOrNo result3 = prompt3.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : Sync changes with remote? (y/N): ");
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: Sync changes with remote? (y/N): ");
     EXPECT_EQ(result3, YesOrNo::NO);
 }
 
@@ -295,14 +295,14 @@ TEST (combineYNStringTests, ScenarioTest12) {
     StringPrompt prompt2("Enter Branch Name: ");
     std::string result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : ");
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: ");
     EXPECT_EQ(result2, "");
 
     //Sync changes with remote : NO 
     YesOrNoPrompt prompt3("Sync changes with remote?", YesOrNo::NO);
     YesOrNo result3 = prompt3.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: : Sync changes with remote? (y/N): ");
+    EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: Sync changes with remote? (y/N): ");
     EXPECT_EQ(result3, YesOrNo::NO);
 }
 
@@ -382,21 +382,21 @@ TEST (combineYNStringTests, ScenarioTest17) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "ModestMark");  
 
     //Sync changes with remote : YES 
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::YES);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (Y/n): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (Y/n): ");
     EXPECT_EQ(result2, YesOrNo::YES);
 
     //Apply changes : YES
     YesOrNoPrompt prompt3("Apply changes?", YesOrNo::YES);
     YesOrNo result3 = prompt3.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (Y/n): Apply changes? (Y/n): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (Y/n): Apply changes? (Y/n): ");
     EXPECT_EQ(result3, YesOrNo::YES);
 }
 
@@ -411,21 +411,21 @@ TEST (combineYNStringTests, ScenarioTest18) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "");  
 
     //Sync changes with remote : YES 
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::YES);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (Y/n): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (Y/n): ");
     EXPECT_EQ(result2, YesOrNo::YES);
 
     //Apply changes : YES
     YesOrNoPrompt prompt3("Apply changes?", YesOrNo::YES);
     YesOrNo result3 = prompt3.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (Y/n): Apply changes? (Y/n): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (Y/n): Apply changes? (Y/n): ");
     EXPECT_EQ(result3, YesOrNo::YES);
 }
 
@@ -440,14 +440,14 @@ TEST (combineYNStringTests, ScenarioTest19) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "ModestMark");  
 
     //Sync changes with remote : NO
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::NO);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (y/N): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (y/N): ");
     EXPECT_EQ(result2, YesOrNo::NO);
 }
 
@@ -463,14 +463,14 @@ TEST (combineYNStringTests, ScenarioTest20) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "");  
 
     //Sync changes with remote : NO
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::NO);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (y/N): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (y/N): ");
     EXPECT_EQ(result2, YesOrNo::NO);
 }
 
@@ -485,14 +485,14 @@ TEST (combineYNStringTests, ScenarioTest21) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "ModestMark");  
 
     //Sync changes with remote : NO
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::NO);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (y/N): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (y/N): ");
     EXPECT_EQ(result2, YesOrNo::NO);
 }
 
@@ -508,14 +508,14 @@ TEST (combineYNStringTests, ScenarioTest22) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "");  
 
     //Sync changes with remote : NO
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::NO);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (y/N): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (y/N): ");
     EXPECT_EQ(result2, YesOrNo::NO);
 }
 
@@ -530,21 +530,21 @@ TEST (combineYNStringTests, ScenarioTest23) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "ModestMark");  
 
     //Sync changes with remote : NO 
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::NO);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (y/N): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (y/N): ");
     EXPECT_EQ(result2, YesOrNo::NO);
 
     //Apply changes : YES
     YesOrNoPrompt prompt3("Apply changes?", YesOrNo::YES);
     YesOrNo result3 = prompt3.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (y/N): Apply changes? (Y/n): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (y/N): Apply changes? (Y/n): ");
     EXPECT_EQ(result3, YesOrNo::YES);
 }
 
@@ -560,21 +560,21 @@ TEST (combineYNStringTests, ScenarioTest24) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "");  
 
     //Sync changes with remote : NO 
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::NO);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (y/N): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (y/N): ");
     EXPECT_EQ(result2, YesOrNo::NO);
 
     //Apply changes : YES
     YesOrNoPrompt prompt3("Apply changes?", YesOrNo::YES);
     YesOrNo result3 = prompt3.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (y/N): Apply changes? (Y/n): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (y/N): Apply changes? (Y/n): ");
     EXPECT_EQ(result3, YesOrNo::YES);
 }
 
@@ -589,21 +589,21 @@ TEST (combineYNStringTests, ScenarioTest25) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "ModestMark");  
 
     //Sync changes with remote : NO 
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::NO);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (y/N): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (y/N): ");
     EXPECT_EQ(result2, YesOrNo::NO);
 
     //Apply changes : NO
     YesOrNoPrompt prompt3("Apply changes?", YesOrNo::NO);
     YesOrNo result3 = prompt3.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (y/N): Apply changes? (y/N): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (y/N): Apply changes? (y/N): ");
     EXPECT_EQ(result3, YesOrNo::NO);
 }
 
@@ -619,21 +619,21 @@ TEST (combineYNStringTests, ScenarioTest26) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "");  
 
     //Sync changes with remote : NO 
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::NO);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (y/N): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (y/N): ");
     EXPECT_EQ(result2, YesOrNo::NO);
 
     //Apply changes : YES
     YesOrNoPrompt prompt3("Apply changes?", YesOrNo::NO);
     YesOrNo result3 = prompt3.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (y/N): Apply changes? (y/N): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (y/N): Apply changes? (y/N): ");
     EXPECT_EQ(result3, YesOrNo::NO);
 }
 
@@ -647,21 +647,21 @@ TEST (combineYNStringTests, ScenarioTest27) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "ModestMark");  
 
     //Sync changes with remote : YES 
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::YES);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (Y/n): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (Y/n): ");
     EXPECT_EQ(result2, YesOrNo::YES);
 
     //Apply changes : NO
     YesOrNoPrompt prompt3("Apply changes?", YesOrNo::NO);
     YesOrNo result3 = prompt3.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (Y/n): Apply changes? (y/N): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (Y/n): Apply changes? (y/N): ");
     EXPECT_EQ(result3, YesOrNo::NO);
 }
 
@@ -676,20 +676,20 @@ TEST (combineYNStringTests, ScenarioTest28) {
     StringPrompt prompt1("Enter commit message: ");
     std::string result1 = prompt1.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : ");
+    EXPECT_EQ(out.str(), "Enter commit message: ");
     EXPECT_EQ(result1, "");  
 
     //Sync changes with remote : YES 
     YesOrNoPrompt prompt2("Sync changes with remote?", YesOrNo::YES);
     YesOrNo result2 = prompt2.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (Y/n): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (Y/n): ");
     EXPECT_EQ(result2, YesOrNo::YES);
 
     //Apply changes : NO
     YesOrNoPrompt prompt3("Apply changes?", YesOrNo::NO);
     YesOrNo result3 = prompt3.presentPrompt(out, in);
 
-    EXPECT_EQ(out.str(), "Enter commit message: : Sync changes with remote? (Y/n): Apply changes? (y/N): ");
+    EXPECT_EQ(out.str(), "Enter commit message: Sync changes with remote? (Y/n): Apply changes? (y/N): ");
     EXPECT_EQ(result3, YesOrNo::NO);
 }
