@@ -39,5 +39,26 @@ TEST (YesOrNoPromptTests, testInvalidInput) {
 
     EXPECT_EQ(out.str(), "This is a test prompt (y/N): Invalid input\nThis is a test prompt (y/N): ");
     EXPECT_EQ(result, YesOrNo::YES);
+}
 
+TEST (YesOrNoPromptTests, testDefaultYes) {
+    ostringstream out; // This will hold what the prompt prints
+    istringstream in("\n"); // This is what the user types
+
+    YesOrNoPrompt prompt("This is a test prompt", YesOrNo::YES);
+    YesOrNo result = prompt.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "This is a test prompt (Y/n): ");
+    EXPECT_EQ(result, YesOrNo::YES);
+}
+
+TEST (YesOrNoPromptTests, testDefaultNo) {
+    ostringstream out; // This will hold what the prompt prints
+    istringstream in("\n"); // This is what the user types
+
+    YesOrNoPrompt prompt("This is a test prompt", YesOrNo::NO);
+    YesOrNo result = prompt.presentPrompt(out, in);
+
+    EXPECT_EQ(out.str(), "This is a test prompt (y/N): ");
+    EXPECT_EQ(result, YesOrNo::NO);
 }
