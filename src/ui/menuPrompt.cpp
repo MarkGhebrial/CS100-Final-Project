@@ -1,17 +1,18 @@
-#include "menuSelection.h"
+#include "menuPrompt.h"
 
 #include "conio.h"
 #include <iostream>
 #include <vector>
+#include <cassert>
 
 using namespace std;
 
-void Menu::generateMenu(const vector <string>& menuPrompts){
+void MenuPrompt::printMenu(){
     clrscr();
     cout << "Menu prompt:" << endl;
 
-    for (int i = 0; i < menuPrompts.size(); i++) {
-        cout << "  [ ] " << menuPrompts.at(i) << endl;
+    for (int i = 0; i < menuItems.size(); i++) {
+        cout << "  [ ] " << menuItems.at(i) << endl;
     }
 
     //Sets user cursor inside []
@@ -21,8 +22,11 @@ void Menu::generateMenu(const vector <string>& menuPrompts){
     //selection with space and enter to quit the program
 }
 
-void Menu::selectOptions(const vector <string> &menuPrompts, vector <bool>& userSelection){
-    generateMenu(menuPrompts);
+vector<string> MenuPrompt::presentPrompt(){
+    printMenu();
+
+    vector<bool> userSelection(menuItems.size());
+
     char input = getch();
     while (input != 10) {
         if (input == 65) {   // move cursor up with up arrow
@@ -34,8 +38,8 @@ void Menu::selectOptions(const vector <string> &menuPrompts, vector <bool>& user
         }
         else if (input == 66) {     // move cursor down with down arrow
             row += 1;
-            if (row > menuPrompts.size() - 1) {
-                row = menuPrompts.size() - 1;
+            if (row > menuItems.size() - 1) {
+                row = menuItems.size() - 1;
             }
             gotoxy(xOffsetCols,row + yOffsetLines);
         }
@@ -53,9 +57,16 @@ void Menu::selectOptions(const vector <string> &menuPrompts, vector <bool>& user
         input = getch();
     }
     clrscr();
+
+    assert(userSelection.size() == menuItems.size());
+
+    vector<string> out;
+    // Append all selected items to the return vector
+    for (int i = 0; i < menuItems.size(); ++i) {
+        if (userSelection.at(i)) {
+            out.push_back(menuItems.at(i));
+        }
+    }
+
+    return out;
 }
-
-
- 
-    
-    

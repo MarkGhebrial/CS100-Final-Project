@@ -4,19 +4,21 @@
 #include <iostream>
 #include <vector>
 
-using namespace std;
-
-class Menu {
+class MenuPrompt {
     private:
+        std::vector<std::string> menuItems;
+
         const int yOffsetLines = 2;
         const int xOffsetCols = 4;
         int row = 0;
         //helper function for select options that displays menu
-        void generateMenu(const vector <string>&);
+        void printMenu();
 
     public:
-        //modifies the bool vector that you pass in
-        void selectOptions(const vector <string>&, vector <bool>&); 
+        MenuPrompt(std::vector<std::string> menuItems) { this->menuItems = menuItems; };
+
+        /// Presents the meu to the user and returns their choices
+        std::vector<std::string> presentPrompt(); 
 };
 
 #endif

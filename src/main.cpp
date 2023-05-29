@@ -30,4 +30,12 @@ int main() {
     if (promptResult == YesOrNo::YES) {
         cout << "Hello world" << endl;
     }
+
+    MenuPrompt menu(result.unstagedChanges);
+    auto menuResult = menu.presentPrompt();
+
+    cout << "Selected items: " << endl;
+    for (auto item : menuResult) {
+        cout << item << endl;
+    }
 }
