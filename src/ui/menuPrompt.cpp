@@ -23,6 +23,11 @@ void MenuPrompt::printMenu(){
 }
 
 vector<string> MenuPrompt::presentPrompt(){
+    if (menuItems.size() < 1) {
+        cout << "There is no unstaged changes" << endl;
+        return menuItems;
+    }
+
     printMenu();
 
     vector<bool> userSelection(menuItems.size());

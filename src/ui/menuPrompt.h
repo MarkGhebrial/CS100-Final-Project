@@ -17,7 +17,7 @@ class MenuPrompt {
     public:
         MenuPrompt(std::vector<std::string> menuItems) { this->menuItems = menuItems; };
 
-        /// Presents the meu to the user and returns their choices
+        /// Presents the menu to the user and returns their choices
         std::vector<std::string> presentPrompt(); 
 };
 
