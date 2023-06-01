@@ -8,13 +8,14 @@ class MenuPrompt {
     private:
         std::vector<std::string> menuItems;
 
-        const int yOffsetLines = 2;
         const int xOffsetCols = 4;
+        int yOffsetLines = 0;
         int row = 0;
         //helper function for select options that displays menu
         void printMenu();
 
     public:
+        void setMenuOffset();
         MenuPrompt(std::vector<std::string> menuItems) { this->menuItems = menuItems; };
 
         /// Presents the menu to the user and returns their choices

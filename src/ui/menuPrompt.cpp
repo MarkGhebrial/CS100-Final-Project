@@ -8,15 +8,15 @@
 using namespace std;
 
 void MenuPrompt::printMenu(){
-    clrscr();
     cout << "Menu prompt:" << endl;
 
     for (int i = 0; i < menuItems.size(); i++) {
         cout << "  [ ] " << menuItems.at(i) << endl;
     }
 
-    //Sets user cursor inside []
-    gotoxy(xOffsetCols,yOffsetLines);
+    //Sets user cursor inside [ ]
+    setMenuOffset();
+    gotoxy(xOffsetCols, yOffsetLines);
 
     //Should I list out how to use the menu in the terminal like movement with arrows, 
     //selection with space and enter to quit the program
@@ -24,7 +24,6 @@ void MenuPrompt::printMenu(){
 
 vector<string> MenuPrompt::presentPrompt(){
     if (menuItems.size() < 1) {
-        cout << "There is no unstaged changes" << endl;
         return menuItems;
     }
 
@@ -61,7 +60,8 @@ vector<string> MenuPrompt::presentPrompt(){
         }
         input = getch();
     }
-    clrscr();
+    gotoxy(0, yOffsetLines + menuItems.size());
+    cout << endl;
 
     assert(userSelection.size() == menuItems.size());
 
@@ -74,4 +74,8 @@ vector<string> MenuPrompt::presentPrompt(){
     }
 
     return out;
+}
+
+void MenuPrompt::setMenuOffset() {
+    yOffsetLines = wherey() - menuItems.size();
 }
