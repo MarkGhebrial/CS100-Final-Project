@@ -5,6 +5,7 @@ add_executable(gb
     src/main.cpp
     src/git/gitCommand.cpp
     src/git/gitCommit.cpp
+    src/git/gitPush.cpp
     src/git/gitStatus.cpp
     src/ui/stringPrompt.cpp
     src/ui/YesOrNoPrompt.cpp
@@ -12,6 +13,7 @@ add_executable(gb
 
 add_executable(tests
     test/tests.cpp
+    test/gitPushTests.cpp
     test/gitStatusTests.cpp
     test/YesOrNoPromptTests.cpp
     test/StringPromptTests.cpp
@@ -20,6 +22,7 @@ add_executable(tests
     src/ui/stringPrompt.cpp
     src/git/gitCommand.cpp
     src/git/gitCommit.cpp
+    src/git/gitPush.cpp
     src/git/gitStatus.cpp
 )
 target_link_libraries(
