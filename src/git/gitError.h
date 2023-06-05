@@ -16,6 +16,11 @@ enum GitErrorType{
 
     /// couldn't pull from the repository
     GIT_FAILED_TO_PULL
+    /// checkout will overwrite uncommitted changes
+    GIT_CHECKOUT_WILL_OVERWRITE,
+
+    /// couldn't push to repository
+    GIT_FAILED_TO_PUSH
 };
 
 class GitError : public std::exception
@@ -43,6 +48,14 @@ class GitError : public std::exception
             else if (errorType == GIT_FAILED_TO_PULL)
             {
                 return "Failed to pull from the repository!";
+            }
+            else if (errorType == GIT_CHECKOUT_WILL_OVERWRITE)
+            {
+                return "Checkout will overwrite uncommited changes!";
+            }
+            else if (errorType == GIT_FAILED_TO_PUSH)
+            {
+                return "Failed to push to the repository!";
             }
         }
 

@@ -5,6 +5,7 @@ using std::endl;
 
 #include "git/gitCommand.h"
 #include "git/gitPull.h"
+#include "git/gitPush.h"
 #include "git/gitStatus.h"
 
 #include "ui/prompts.h"
@@ -34,4 +35,7 @@ int main() {
 
     GitPull pull = GitPull();
     pull.run();
+    
+    GitPush push = GitPush();
+    push.run();
 }
