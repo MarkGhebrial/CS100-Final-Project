@@ -11,6 +11,11 @@ enum GitErrorType{
     /// no branch to push to
     GIT_NO_UPSTREAM_BRANCH,
 
+    /// pull will overwrite uncommitted changes
+    GIT_OVERWRITING_LOCAL_FILES,
+
+    /// couldn't pull from the repository
+    GIT_FAILED_TO_PULL
     /// checkout will overwrite uncommitted changes
     GIT_CHECKOUT_WILL_OVERWRITE,
 
@@ -35,6 +40,14 @@ class GitError : public std::exception
             else if (errorType == GIT_NO_UPSTREAM_BRANCH)
             {
                 return "No upstream branch!";
+            }
+            else if (errorType == GIT_OVERWRITING_LOCAL_FILES)
+            {
+                return "Pull will overwrite local changes!";
+            }
+            else if (errorType == GIT_FAILED_TO_PULL)
+            {
+                return "Failed to pull from the repository!";
             }
             else if (errorType == GIT_CHECKOUT_WILL_OVERWRITE)
             {

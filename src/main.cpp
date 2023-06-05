@@ -4,6 +4,7 @@ using std::cin;
 using std::endl;
 
 #include "git/gitCommand.h"
+#include "git/gitPull.h"
 #include "git/gitPush.h"
 #include "git/gitStatus.h"
 
@@ -32,6 +33,9 @@ int main() {
         cout << "Hello world" << endl;
     }
 
+    GitPull pull = GitPull();
+    pull.run();
+    
     GitPush push = GitPush();
     push.run();
 }

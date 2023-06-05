@@ -5,6 +5,7 @@ add_executable(gb
     src/main.cpp
     src/git/gitCommand.cpp
     src/git/gitCommit.cpp
+    src/git/gitPull.cpp
     src/git/gitPush.cpp
     src/git/gitStatus.cpp
     src/ui/stringPrompt.cpp
@@ -13,6 +14,7 @@ add_executable(gb
 
 add_executable(tests
     test/tests.cpp
+    test/gitPullTests.cpp
     test/gitPushTests.cpp
     test/gitStatusTests.cpp
     test/YesOrNoPromptTests.cpp
@@ -22,6 +24,7 @@ add_executable(tests
     src/ui/stringPrompt.cpp
     src/git/gitCommand.cpp
     src/git/gitCommit.cpp
+    src/git/gitPull.cpp
     src/git/gitPush.cpp
     src/git/gitStatus.cpp
 )
