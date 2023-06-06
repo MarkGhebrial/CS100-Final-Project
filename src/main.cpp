@@ -42,7 +42,11 @@ int main(int argc, char** argv) {
 
     }
     else if (argument == "sync") {
+        GitPull pull = GitPull();
+        pull.run();
 
+        GitPush push = GitPush();
+        push.run();
     }
     else if (argument == "discard") {
 
@@ -58,10 +62,4 @@ int main(int argc, char** argv) {
     } else {
         printHelpMessage();
     }
-
-    GitPull pull = GitPull();
-    pull.run();
-    
-    GitPush push = GitPush();
-    push.run();
 }
