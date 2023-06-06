@@ -20,6 +20,11 @@ YesOrNo YesOrNoPrompt::presentPrompt(std::ostream& out, std::istream& in) {
     // Get input from the user
     string line;
     getline(in, line);
+
+    if (line.size() == 0) {
+        return defaultOption;
+    }
+
     char input = line[0];
 
     // If the user just presses enter

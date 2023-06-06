@@ -3,39 +3,63 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+#include <string>
+using std::string;
+
+#include "wizards.h"
+
 #include "git/gitCommand.h"
+#include "git/gitPull.h"
+#include "git/gitPush.h"
 #include "git/gitStatus.h"
 
 #include "ui/prompts.h"
 
-int main() {
-    std::cout << "Hello, world!" << std::endl;
+void printHelpMessage() {
+    cout << "TODO: Write a help message" << endl;
+}
 
-    GitStatus cmd = GitStatus();
-    auto result = cmd.run();
-
-    for (auto fileName : result.stagedChanges) {
-        cout << "Staged change: " << fileName << endl;
-    }
-    for (auto fileName : result.unstagedChanges) {
-        cout << "Unstaged change: " << fileName << endl;
-    }
-    for (auto fileName : result.untrackedChanges) {
-        cout << "Untracked change: " << fileName << endl;
-    } 
-
-    YesOrNoPrompt prompt("Print hello world?", YesOrNo::YES);
-    auto promptResult = prompt.presentPrompt(cout, cin);
-
-    if (promptResult == YesOrNo::YES) {
-        cout << "Hello world" << endl;
+int main(int argc, char** argv) {
+    // Print the help message if the user did not provide a command line argument
+    if (argc < 2) {
+        printHelpMessage();
+        return 0;
     }
 
-    MenuPrompt menu(result.unstagedChanges);
-    auto menuResult = menu.presentPrompt();
+    // The command line argument specified by the user
+    string argument(argv[1]);
 
-    cout << "Selected items: " << endl;
-    for (auto item : menuResult) {
-        cout << item << endl;
+    if (argument == "commit") {
+
+    }
+    else if (argument == "merge") {
+
+    }
+    else if (argument == "branch") {
+
+    }
+    else if (argument == "checkout") {
+
+    }
+    else if (argument == "sync") {
+        GitPull pull = GitPull();
+        pull.run();
+
+        GitPush push = GitPush();
+        push.run();
+    }
+    else if (argument == "discard") {
+
+    }
+    else if (argument == "revert") {
+
+    }
+    else if (argument == "reset") {
+
+    }
+    else if (argument == "ignore") {
+
+    } else {
+        printHelpMessage();
     }
 }

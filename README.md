@@ -189,13 +189,22 @@ Squash revert commits? (Y/n):
 Add files to gitignore? (Y/n):
 ```
 
-## [Class Diagram](https://drive.google.com/file/d/16vnE1fs09R_JhpO_OeMHC76BUgr4fuAm/view)
+## Class Diagram
 
-![Class diagram](images/Class%20Diagram.drawio.png)
+### [Original class diagram](https://drive.google.com/file/d/16vnE1fs09R_JhpO_OeMHC76BUgr4fuAm/view)
+
+![Old class diagram](images/Class%20Diagram.drawio.png)
 
 See [the prototype](promptInheritancePrototype.cpp) to see what this class diagram looks like as code.
 
-TODO: Draw and describe the classes that build and execute Git commands
+### [New class diagram](https://drive.google.com/file/d/1DnEhqoISOAFiNkcXasOvjgUPER_93_hh/view?usp=sharing)
+
+![New class diagram](images/New%20Class%20Diagram.drawio.png)
+
+After learning the SOLID priciples, we realized that our design severely violated the open/closed principle, since adding a new prompt or git command would require changes beyond just adding a new child class.
+
+Consequentially, we decided that the polymorphism provided by our complex inheritance structure was not very important for our program, so we removed the `GitCommandResult`, `TerminalPromptResult`, and `TerminalPrompt` interfaces.
+We kept the `GitCommand` parent class because it actually provides functionality to its children (i.e. invoking git in a shell).
  
  > ## Phase III
  > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.

@@ -10,7 +10,7 @@ StringPrompt::StringPrompt(string prompt) :
 
 std::string StringPrompt::presentPrompt(std::ostream& out, std::istream& in) {
     // Print the prompt
-    out << prompt << ": ";
+    out << prompt;
     // Get string input from the user
     string message;
     getline(in, message);
