@@ -30,16 +30,16 @@ int main(int argc, char** argv) {
     string argument(argv[1]);
 
     if (argument == "commit") {
-
+        commitWizard();
     }
     else if (argument == "merge") {
-
+        mergeWizard();
     }
     else if (argument == "branch") {
-
+        branchWizard();
     }
     else if (argument == "checkout") {
-
+        checkoutWizard();
     }
     else if (argument == "sync") {
         GitPull pull = GitPull();
@@ -49,16 +49,16 @@ int main(int argc, char** argv) {
         push.run();
     }
     else if (argument == "discard") {
-
+        discardWizard();
     }
     else if (argument == "revert") {
-
+        revertWizard();
     }
     else if (argument == "reset") {
-
+        resetWizard();
     }
     else if (argument == "ignore") {
-
+        ignoreWizard();
     } else {
         printHelpMessage();
     }

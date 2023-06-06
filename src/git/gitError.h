@@ -15,7 +15,7 @@ enum GitErrorType{
     GIT_OVERWRITING_LOCAL_FILES,
 
     /// couldn't pull from the repository
-    GIT_FAILED_TO_PULL
+    GIT_FAILED_TO_PULL,
     /// checkout will overwrite uncommitted changes
     GIT_CHECKOUT_WILL_OVERWRITE,
 
