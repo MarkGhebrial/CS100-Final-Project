@@ -13,6 +13,11 @@ add_executable(gb
     src/ui/menuPrompt.cpp
 )
 
+add_executable(menuTest
+    src/menuPromptTest.cpp
+    src/ui/menuPrompt.cpp
+)
+
 add_executable(tests
     test/tests.cpp
     test/gitPullTests.cpp
