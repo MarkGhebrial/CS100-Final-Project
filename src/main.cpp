@@ -3,6 +3,11 @@ using std::cout;
 using std::cin;
 using std::endl;
 
+#include <string>
+using std::string;
+
+#include "wizards.h"
+
 #include "git/gitCommand.h"
 #include "git/gitPull.h"
 #include "git/gitPush.h"
@@ -10,27 +15,48 @@ using std::endl;
 
 #include "ui/prompts.h"
 
-int main() {
-    std::cout << "Hello, world!" << std::endl;
+void printHelpMessage() {
+    cout << "TODO: Write a help message" << endl;
+}
 
-    GitStatus cmd = GitStatus();
-    auto result = cmd.run();
-
-    for (auto fileName : result.stagedChanges) {
-        cout << "Staged change: " << fileName << endl;
+int main(int argc, char** argv) {
+    // Print the help message if the user did not provide a command line argument
+    if (argc < 2) {
+        printHelpMessage();
+        return 0;
     }
-    for (auto fileName : result.unstagedChanges) {
-        cout << "Unstaged change: " << fileName << endl;
+
+    // The command line argument specified by the user
+    string argument(argv[1]);
+
+    if (argument == "commit") {
+
     }
-    for (auto fileName : result.untrackedChanges) {
-        cout << "Untracked change: " << fileName << endl;
-    } 
+    else if (argument == "merge") {
 
-    YesOrNoPrompt prompt("Print hello world?", YesOrNo::YES);
-    auto promptResult = prompt.presentPrompt(cout, cin);
+    }
+    else if (argument == "branch") {
 
-    if (promptResult == YesOrNo::YES) {
-        cout << "Hello world" << endl;
+    }
+    else if (argument == "checkout") {
+
+    }
+    else if (argument == "sync") {
+
+    }
+    else if (argument == "discard") {
+
+    }
+    else if (argument == "revert") {
+
+    }
+    else if (argument == "reset") {
+
+    }
+    else if (argument == "ignore") {
+
+    } else {
+        printHelpMessage();
     }
 
     GitPull pull = GitPull();
