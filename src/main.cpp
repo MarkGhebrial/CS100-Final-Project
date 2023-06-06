@@ -6,6 +6,8 @@ using std::endl;
 #include <string>
 using std::string;
 
+#include "wizards.h"
+
 #include "git/gitCommand.h"
 #include "git/gitStatus.h"
 
