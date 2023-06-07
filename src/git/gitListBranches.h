@@ -1,5 +1,5 @@
-#ifndef _GIT_LIST_BRANCH_H_
-#define _GIT_LIST_BRANCH_H_
+#ifndef _GIT_LIST_BRANCHES_H_
+#define _GIT_LIST_BRANCHES_H_
 
 #include "gitCommand.h"
 
