@@ -7,6 +7,7 @@
 #include <vector>
 using namespace std;
 
+/// Run git pull and git push
 void sync() {
     GitPull pull = GitPull();
     pull.run();
@@ -18,6 +19,7 @@ void sync() {
 void commitWizard() {
     GitStatusResult result = GitStatus().run();
 
+    // Print the status of the repository
     // TODO: make this code nicer
     if (result.unstagedChanges.size() == 0) {
         cout << "Unstaged Changes: none" << endl;
@@ -47,9 +49,9 @@ void commitWizard() {
     }
 
     GitAdd addCommand;
-
+    
     // Ask the user if they want to stage all changes
-    auto stageAllChangesPrompt = YesOrNoPrompt("Do you want to stage all changes?", YesOrNo::YES);
+    YesOrNoPrompt stageAllChangesPrompt = YesOrNoPrompt("Do you want to stage all changes?", YesOrNo::YES);
     if (stageAllChangesPrompt.presentPrompt(cout, cin) == YesOrNo::NO) {
         // If not, let them select the files they want to stage
 
@@ -86,20 +88,23 @@ void commitWizard() {
     }
     GitCommit commitCommand = GitCommit(commitMessage);
 
+    // Ask if the user wants to pull and push
     YesOrNoPrompt syncPrompt = YesOrNoPrompt("Sync with remote?", YesOrNo::YES);
     YesOrNo syncResponse = syncPrompt.presentPrompt(cout, cin);
 
+    // Confirm the user's intentions
     YesOrNoPrompt confirmChangesPrompt = YesOrNoPrompt("Apply changes?", YesOrNo::YES);
     if (confirmChangesPrompt.presentPrompt(cout, cin) == YesOrNo::NO) {
         cout << "Canceled. Your repository is untouched.";
         return;
     }
 
+    // Run the git commands
     addCommand.run();
     commitCommand.run();
     if (syncResponse == YesOrNo::YES) sync();
 
-    cout << "Done" << endl;
+    cout << "Done :)" << endl;
 }
 
 void mergeWizard() {}
