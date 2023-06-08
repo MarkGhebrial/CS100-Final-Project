@@ -55,7 +55,7 @@ void commitWizard() {
         }
 
         // Create and show a menu to the user
-        MenuPrompt fileMenu = MenuPrompt(menuItems);
+        MenuPrompt fileMenu = MenuPrompt("Select files to stage:", menuItems);
         vector<string> selectedFiles = fileMenu.presentPrompt();
 
         if (selectedFiles.size() == 0) {
