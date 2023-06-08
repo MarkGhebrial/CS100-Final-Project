@@ -8,6 +8,7 @@
 #include "gitAdd.h"
 #include "gitCommit.h"
 #include "gitPull.h"
+#include "gitPush.h"
 #include "gitStatus.h"
 
 #endif

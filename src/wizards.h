@@ -7,6 +7,14 @@
 #include <vector>
 using namespace std;
 
+void sync() {
+    GitPull pull = GitPull();
+    pull.run();
+
+    GitPush push = GitPush();
+    push.run();
+}
+
 void commitWizard() {
     GitStatusResult result = GitStatus().run();
 
@@ -67,6 +75,31 @@ void commitWizard() {
     } else {
         addCommand = GitAdd();
     }
+
+    // Ask the user for a commit message
+    StringPrompt commitMessagePrompt = StringPrompt("Enter a commit message");
+    string commitMessage = commitMessagePrompt.presentPrompt(cout, cin);
+
+    if (commitMessage == "") {
+        cout << "TODO: Handle empty commit messages" << endl;
+        return;
+    }
+    GitCommit commitCommand = GitCommit(commitMessage);
+
+    YesOrNoPrompt syncPrompt = YesOrNoPrompt("Sync with remote?", YesOrNo::YES);
+    YesOrNo syncResponse = syncPrompt.presentPrompt(cout, cin);
+
+    YesOrNoPrompt confirmChangesPrompt = YesOrNoPrompt("Apply changes?", YesOrNo::YES);
+    if (confirmChangesPrompt.presentPrompt(cout, cin) == YesOrNo::NO) {
+        cout << "Canceled. Your repository is untouched.";
+        return;
+    }
+
+    addCommand.run();
+    commitCommand.run();
+    if (syncResponse == YesOrNo::YES) sync();
+
+    cout << "Done" << endl;
 }
 
 void mergeWizard() {}
