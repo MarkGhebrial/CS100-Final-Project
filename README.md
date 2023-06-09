@@ -229,17 +229,28 @@ An executable called "gb" will be created in the root directory of the project. 
 
 ## Usage
 
-GitBuddy can be invoked by typing `gb` in the terminal.
+```
+Usage: gb <command>
 
-TODO: Write a usage guide.
+Commands:
+  commit    Stage and commit your changes
+  merge     Merge one branch into another
+  branch    Create or delete a branch
+  checkout  Switch to another branch
+  sync      Pull and push your current branch
+  discard   Discard changes on the working tree
+  revert    Select commits to revert
+  reset     Select a commit to roll history back to
+  ignore    Untrack files and add them to .gitignore
+```
 
 ## Testing
 
 We used gtest to write unit tests for our ui prompts and git backend classes.
 
-Unit tests were implemented for the `YesOrNoPrompt` and `StringPrompt` by replacing `cin` and `cout` with `istringstreams` and `ostringstreams`. Different combinations of `YesOrNoPrompts` and `StringPrompts` are tested in `src/test/combineYNStringTests.cpp`.
+Unit tests were implemented for the `YesOrNoPrompt` and `StringPrompt` by replacing `cin` and `cout` with `istringstream`s and `ostringstream`s. Different combinations of `YesOrNoPrompts` and `StringPrompts` are tested in `src/test/combineYNStringTests.cpp`.
 
-The `MenuPrompt` class does not use C++'s iostreams and instead uses `conio.h`. It might be possible to unit test it if we wrote a wrapper around conio, but we instead wrote a simple program (`src/menuPromptTest.cpp`) that allows you to check if the menuPrompt works as expected.
+The `MenuPrompt` class does not use C++'s iostreams and instead uses `conio.h`. It might be possible to unit test it if we wrote a wrapper around conio, but we instead wrote a simple program (in `src/menuPromptTest.cpp`) that allows you to check if the menuPrompt works as expected.
 Run the `menuTest` executable after building the project to test the menu.
 
 > NOTE: `MenuPrompt` is only verified to work on the CS100 ssh server. See [issue #42](https://github.com/cs100/final-project-ttrin055-twan012-mgheb003-cknox008/issues/42)
