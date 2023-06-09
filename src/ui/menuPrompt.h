@@ -4,10 +4,16 @@
 #include <iostream>
 #include <vector>
 
+enum SingleOrMultiSelection {
+    SINGLE,
+    MULTI
+};
+
 class MenuPrompt {
     private:
         std::vector<std::string> menuItems;
 
+        SingleOrMultiSelection selectionOption;
         const int xOffsetCols = 4;
         int yOffsetLines = 0;
         int row = 0;
@@ -16,7 +22,7 @@ class MenuPrompt {
 
     public:
         void setMenuOffset();
-        MenuPrompt(std::vector<std::string> menuItems) { this->menuItems = menuItems; };
+        MenuPrompt(std::vector<std::string> menuItems, SingleOrMultiSelection selectionOption) { this->menuItems = menuItems; this->selectionOption = selectionOption;};
 
         /// Presents the menu to the user and returns their choices
         std::vector<std::string> presentPrompt(); 
