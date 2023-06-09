@@ -12,6 +12,10 @@ add_executable(gb
     src/git/gitPull.cpp
     src/git/gitPush.cpp
     src/git/gitStatus.cpp
+    src/git/gitListBranches.cpp
+    src/git/gitNewBranch.cpp
+    src/git/gitDeleteBranch.cpp
+    src/git/gitCheckout.cpp
     src/ui/stringPrompt.cpp
     src/ui/YesOrNoPrompt.cpp
     src/ui/menuPrompt.cpp
