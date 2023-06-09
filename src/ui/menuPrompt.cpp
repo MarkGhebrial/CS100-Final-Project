@@ -45,13 +45,30 @@ vector<string> MenuPrompt::presentPrompt(){
             gotoxy(xOffsetCols,row + yOffsetLines);
         }
         else if (input == 32) { // user selection with space
-            if (userSelection.at(row) == false) {
+            if (selectionOption == SingleOrMultiSelection::SINGLE) {
+                for (int i = 0; i < userSelection.size(); i++) {
+                    userSelection.at(i) = false;
+                }
                 userSelection.at(row) = true;
+
+                for (int i = 0; i < userSelection.size(); i++) {
+                    gotoxy(xOffsetCols, i + yOffsetLines);
+                    cout << " ";
+                }
+
+                gotoxy(xOffsetCols, row + yOffsetLines);
+                userSelection.at(row) == true;
                 cout << "X";
             }
             else {
-                userSelection.at(row) = false;
-                cout << " ";
+                if (userSelection.at(row) == false) {
+                    userSelection.at(row) = true;
+                    cout << "X";
+                }
+                else {
+                    userSelection.at(row) = false;
+                    cout << " ";
+                }
             }
             gotoxy(xOffsetCols,row + yOffsetLines);       
         }

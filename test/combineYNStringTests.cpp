@@ -71,7 +71,7 @@ TEST (combineYNStringTests, ScenarioTest3) {
     EXPECT_EQ(result1, YesOrNo::YES);
 
     //Enter Branch Name : String                                        
-    StringPrompt prompt2("Enter Branch Name: ");
+    StringPrompt prompt2("Enter Branch Name");
     std::string result2 = prompt2.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: ");
@@ -93,7 +93,7 @@ TEST (combineYNStringTests, ScenarioTest4) {
     EXPECT_EQ(result1, YesOrNo::YES);
 
     //Enter Branch Name : Empty String                                        
-    StringPrompt prompt2("Enter Branch Name: ");
+    StringPrompt prompt2("Enter Branch Name");
     std::string result2 = prompt2.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: ");
@@ -107,7 +107,7 @@ TEST (combineYNStringTests, ScenarioTest5) {
     ostringstream out;          
     istringstream in("MarkTheCSGod\nyes\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");
@@ -129,7 +129,7 @@ TEST (combineYNStringTests, ScenarioTest6) {
     ostringstream out;          
     istringstream in("\nyes\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");
@@ -150,7 +150,7 @@ TEST (combineYNStringTests, ScenarioTest7) {
     ostringstream out;          
     istringstream in("MarkTheCSGod\nno\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");
@@ -172,7 +172,7 @@ TEST (combineYNStringTests, ScenarioTest8) {
     ostringstream out;          
     istringstream in("\nno\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");
@@ -204,7 +204,7 @@ TEST (combineYNStringTests, ScenarioTest9) {
     EXPECT_EQ(result1, YesOrNo::YES);
 
     //Enter Branch Name : String                                        
-    StringPrompt prompt2("Enter Branch Name: ");
+    StringPrompt prompt2("Enter Branch Name");
     std::string result2 = prompt2.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: ");
@@ -234,7 +234,7 @@ TEST (combineYNStringTests, ScenarioTest10) {
     EXPECT_EQ(result1, YesOrNo::YES);
 
     //Enter Branch Name : Empty String                                        
-    StringPrompt prompt2("Enter Branch Name: ");
+    StringPrompt prompt2("Enter Branch Name");
     std::string result2 = prompt2.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: ");
@@ -262,7 +262,7 @@ TEST (combineYNStringTests, ScenarioTest11) {
     EXPECT_EQ(result1, YesOrNo::YES);
 
     //Enter Branch Name : String                                        
-    StringPrompt prompt2("Enter Branch Name: ");
+    StringPrompt prompt2("Enter Branch Name");
     std::string result2 = prompt2.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: ");
@@ -292,7 +292,7 @@ TEST (combineYNStringTests, ScenarioTest12) {
     EXPECT_EQ(result1, YesOrNo::YES);
 
     //Enter Branch Name : Empty String                                        
-    StringPrompt prompt2("Enter Branch Name: ");
+    StringPrompt prompt2("Enter Branch Name");
     std::string result2 = prompt2.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Create Branch? (Y/n): Enter Branch Name: ");
@@ -379,7 +379,7 @@ TEST (combineYNStringTests, ScenarioTest17) {
     ostringstream out;          
     istringstream in("ModestMark\nyes\nyes\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");
@@ -408,7 +408,7 @@ TEST (combineYNStringTests, ScenarioTest18) {
     ostringstream out;          
     istringstream in("\nyes\nyes\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");
@@ -437,7 +437,7 @@ TEST (combineYNStringTests, ScenarioTest19) {
     ostringstream out;          
     istringstream in("ModestMark\nno\nyes\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");
@@ -460,7 +460,7 @@ TEST (combineYNStringTests, ScenarioTest20) {
     ostringstream out;          
     istringstream in("\nno\nyes\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");
@@ -482,7 +482,7 @@ TEST (combineYNStringTests, ScenarioTest21) {
     ostringstream out;          
     istringstream in("ModestMark\nno\nno\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");
@@ -505,7 +505,7 @@ TEST (combineYNStringTests, ScenarioTest22) {
     ostringstream out;          
     istringstream in("\nno\nno\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");
@@ -527,7 +527,7 @@ TEST (combineYNStringTests, ScenarioTest23) {
     ostringstream out;          
     istringstream in("ModestMark\nno\nyes\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");
@@ -557,7 +557,7 @@ TEST (combineYNStringTests, ScenarioTest24) {
     ostringstream out;          
     istringstream in("\nno\nyes\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");
@@ -586,7 +586,7 @@ TEST (combineYNStringTests, ScenarioTest25) {
     ostringstream out;          
     istringstream in("ModestMark\nno\nno\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");
@@ -616,7 +616,7 @@ TEST (combineYNStringTests, ScenarioTest26) {
     ostringstream out;          
     istringstream in("\nno\nno\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");
@@ -644,7 +644,7 @@ TEST (combineYNStringTests, ScenarioTest27) {
     ostringstream out;          
     istringstream in("ModestMark\nyes\nno\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");
@@ -673,7 +673,7 @@ TEST (combineYNStringTests, ScenarioTest28) {
     ostringstream out;          
     istringstream in("\nyes\nno\n");                  
 
-    StringPrompt prompt1("Enter commit message: ");
+    StringPrompt prompt1("Enter commit message");
     std::string result1 = prompt1.presentPrompt(out, in);
 
     EXPECT_EQ(out.str(), "Enter commit message: ");

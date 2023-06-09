@@ -16,9 +16,9 @@ int main(){
     menuPrompts.push_back("Prompt 7");
     menuPrompts.push_back("Prompt 8");
 
-    MenuPrompt menuObject("Select an item:", menuPrompts);
+    MenuPrompt menuObject("Select an item:", menuPrompts, SINGLE);
 
-    vector<string> userSelection = menuObject.presentPrompt();;
+    vector<string> userSelection = menuObject.presentPrompt();
 
     for (auto s : userSelection) {
         cout << s << endl;

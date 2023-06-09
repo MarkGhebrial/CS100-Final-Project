@@ -9,6 +9,9 @@ using std::string;
 #include "wizards.h"
 
 #include "git/gitCommand.h"
+#include "git/gitDeleteBranch.h"
+#include "git/gitListBranches.h"
+#include "git/gitNewBranch.h"
 #include "git/gitPull.h"
 #include "git/gitPush.h"
 #include "git/gitStatus.h"
