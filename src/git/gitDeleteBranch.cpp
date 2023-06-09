@@ -5,7 +5,7 @@
 
 using std::string;
 
-GitDeleteBranch::GitDeleteBranch(string branchName) :  : GitCommand("branch -d " + branchName) { }
+GitDeleteBranch::GitDeleteBranch(string branchName) : GitCommand("branch -d " + branchName) { }
 
 void GitDeleteBranch::run()
 {

@@ -10,5 +10,9 @@
 #include "gitPull.h"
 #include "gitPush.h"
 #include "gitStatus.h"
+#include "gitDeleteBranch.h"
+#include "gitNewBranch.h"
+#include "gitListBranches.h"
+#include "gitCheckout.h"
 
 #endif

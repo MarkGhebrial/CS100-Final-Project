@@ -3,11 +3,14 @@
 
 #include "gitCommand.h"
 
+#include <vector>
+#include <string>
+
 class GitListBranches : public GitCommand {
     public:
         /// Default constructor that outputs all local branches
-            /// to the terminal
-        GitListBranches() : GitCommand("branch");
+        /// to the terminal
+        GitListBranches() : GitCommand("branch"){};
 
         std::vector<std::string> run();
     private:

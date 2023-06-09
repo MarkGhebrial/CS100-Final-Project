@@ -65,7 +65,7 @@ void commitWizard() {
         }
 
         // Create and show a menu to the user
-        MenuPrompt fileMenu = MenuPrompt("Select files to stage:", menuItems);
+        MenuPrompt fileMenu = MenuPrompt("Select files to stage:", menuItems, MULTI);
         vector<string> selectedFiles = fileMenu.presentPrompt();
 
         if (selectedFiles.size() == 0) {
@@ -112,31 +112,41 @@ void mergeWizard() {} // Not implementing due to lack of time
 void branchWizard() {}
 
 void checkoutWizard() {
-    // vector <string> menuPrompts; // This is going to be the vector of file names that Charlie 
-    // //is working on
-    // if (menuPrompts.size() < 2) {
-    //     cout << "There is no other branch to checkout to." << endl;
-    // }
+    GitListBranches userBranches = GitListBranches();
 
-    MenuPrompt menuObject(menuPrompts, SINGLE); // We create a menu object from the vector that we recieve
+    vector <string> branches = userBranches.run();
 
-    vector<string> userSelection = menuObject.presentPrompt();  // This will present the menu so user can select which branch they want to checkout to
+    if (branches.size() < 2) {
+        cout << "There is no other branch to checkout to." << endl;
+        return;
+    }
+    else {
+        MenuPrompt menuObject("Select a branch to checkout to:", branches, SINGLE); // We create a menu object from the vector that we recieve
 
-    // for (auto s : userSelection) {
-    //     cout << s << endl;              // This couts their selection to the terminal, used for testing
-    // }
-    
-    // Call the menu function to display the branch that the user can select from
+        vector<string> userSelection = menuObject.presentPrompt();  // This will present the menu so user can select which branch they want to checkout to
 
-    // If the user selects more than one branch, throw exeption
-    // Todo(if we have time), make a new menu that only takes one selection from the user
+        // If the user selects no files, then we just quit
+        if (userSelection.size() == 0) {
+            cout << "No files selected, exiting." << endl;
+            return;
+        }
 
-    // After the user selects the branch, the menu is going to return a string vector with that branch
-        // cout << "You have selected " << <branchName> << " branch." << endl;
-        // cout << "Do you want to checkout to this branch?" << endl;
-    // Ask the user to confirm if they want to checkout to this branch
+        // Confirm the user's intentions
+            YesOrNoPrompt confirmCheckoutPrompt = YesOrNoPrompt("Checkout to this branch?", YesOrNo::YES);
+            if (confirmCheckoutPrompt.presentPrompt(cout, cin) == YesOrNo::NO) {
+                cout << "Canceled. You did not checkout to that branch.";
+                return;
+            }
 
-    // create new git checkout object
+        // Run the git commands
+        GitCheckout checkoutCommand(userSelection.at(0));
+        checkoutCommand.run();
+      
+
+        cout << "Done :)" << endl;
+    }
+
+    //checkoutCommand.run();
 }
 
 // Not implementing functions below due to lack of time

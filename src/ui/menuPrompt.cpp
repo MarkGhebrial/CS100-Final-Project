@@ -46,7 +46,7 @@ vector<string> MenuPrompt::presentPrompt(){
         }
         else if (input == 32) { // user selection with space
             if (selectionOption == SingleOrMultiSelection::SINGLE) {
-                for (int i = 0; i < userSelection.size(); i++) {
+                for (int i = 0; i < userSelection.size(); i++) { // if the user puts SINGLE as parameter, it will only allow user to select one item
                     userSelection.at(i) = false;
                 }
                 userSelection.at(row) = true;
@@ -60,7 +60,7 @@ vector<string> MenuPrompt::presentPrompt(){
                 userSelection.at(row) == true;
                 cout << "X";
             }
-            else {
+            else {          //user can select multiple items
                 if (userSelection.at(row) == false) {
                     userSelection.at(row) = true;
                     cout << "X";
@@ -90,5 +90,5 @@ vector<string> MenuPrompt::presentPrompt(){
 }
 
 void MenuPrompt::setMenuOffset() {
-    yOffsetLines = wherey() - menuItems.size();
+    yOffsetLines = wherey() - menuItems.size(); 
 }
