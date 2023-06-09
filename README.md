@@ -247,6 +247,8 @@ Unit tests were implemented for the `YesOrNoPrompt` and `StringPrompt` by replac
 The `MenuPrompt` class does not use C++'s iostreams and instead uses `conio.h`. It might be possible to unit test it if we wrote a wrapper around conio, but we instead wrote a simple program (in `src/menuPromptTest.cpp`) that allows you to check if the menuPrompt works as expected.
 Run the `menuTest` executable after building the project to test the menu.
 
-> NOTE: `MenuPrompt` is only verified to work on the CS100 ssh server. See [issue #42](https://github.com/cs100/final-project-ttrin055-twan012-mgheb003-cknox008/issues/42)
+> NOTE: `MenuPrompt` is only verified to work on the CS100 ssh server and Linux Mint. See [issue #42](https://github.com/cs100/final-project-ttrin055-twan012-mgheb003-cknox008/issues/42)
 
 Invoking Git cannot be unit tested (at least not easily), so we only test the functions that are responsible for parsing Git's output, such as the `GitStatusResult` constructor or `GitPush::checkForErrors`.
+
+We test the `GitListBranches`, `GitNewBranch`, and `GitDeleteBranch` classes by creating a branch, checking that it exists, deleting it, then checking that it's gone. That unit test is in `test/gitBranchTests.cpp`.
