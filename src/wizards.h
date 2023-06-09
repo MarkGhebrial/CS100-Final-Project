@@ -15,9 +15,9 @@ void checkoutWizard() {
     //     cout << "There is no other branch to checkout to." << endl;
     // }
 
-    // MenuPrompt menuObject(menuPrompts); // We create a menu object from the vector that we recieve
+    MenuPrompt menuObject(menuPrompts, SINGLE); // We create a menu object from the vector that we recieve
 
-    // vector<string> userSelection = menuObject.presentPrompt();  // This will present the menu so user can select which branch they want to checkout to
+    vector<string> userSelection = menuObject.presentPrompt();  // This will present the menu so user can select which branch they want to checkout to
 
     // for (auto s : userSelection) {
     //     cout << s << endl;              // This couts their selection to the terminal, used for testing
