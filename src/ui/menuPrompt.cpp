@@ -8,7 +8,7 @@
 using namespace std;
 
 void MenuPrompt::printMenu(){
-    cout << "Menu prompt:" << endl;
+    cout << prompt << endl;
 
     for (int i = 0; i < menuItems.size(); i++) {
         cout << "  [ ] " << menuItems.at(i) << endl;
@@ -17,9 +17,6 @@ void MenuPrompt::printMenu(){
     //Sets user cursor inside [ ]
     setMenuOffset();
     gotoxy(xOffsetCols, yOffsetLines);
-
-    //Should I list out how to use the menu in the terminal like movement with arrows, 
-    //selection with space and enter to quit the program
 }
 
 vector<string> MenuPrompt::presentPrompt(){
@@ -61,7 +58,6 @@ vector<string> MenuPrompt::presentPrompt(){
         input = getch();
     }
     gotoxy(0, yOffsetLines + menuItems.size());
-    cout << endl;
 
     assert(userSelection.size() == menuItems.size());
 

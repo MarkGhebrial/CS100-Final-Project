@@ -16,7 +16,7 @@ int main(){
     menuPrompts.push_back("Prompt 7");
     menuPrompts.push_back("Prompt 8");
 
-    MenuPrompt menuObject(menuPrompts);
+    MenuPrompt menuObject("Select an item:", menuPrompts);
 
     vector<string> userSelection = menuObject.presentPrompt();;
 

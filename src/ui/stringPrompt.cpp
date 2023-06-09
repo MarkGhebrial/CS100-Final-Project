@@ -5,7 +5,7 @@
 using namespace std;
 
 StringPrompt::StringPrompt(string prompt) :
-    prompt(prompt)
+    prompt(prompt + ": ")
 {}
 
 std::string StringPrompt::presentPrompt(std::ostream& out, std::istream& in) {

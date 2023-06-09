@@ -25,10 +25,10 @@ void GitPush::checkForErrors(string output)
     while (getline(stream, line))
     {
         str = line.substr(0, 5);
-    }
 
-    if (str == "error" || str == "fatal")
-    {
-        throw GitError(GitErrorType::GIT_FAILED_TO_PUSH);
+        if (str == "error" || str == "fatal")
+        {
+            throw GitError(GitErrorType::GIT_FAILED_TO_PUSH);
+        }
     }
 }

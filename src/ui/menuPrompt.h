@@ -7,6 +7,7 @@
 class MenuPrompt {
     private:
         std::vector<std::string> menuItems;
+        std::string prompt;
 
         const int xOffsetCols = 4;
         int yOffsetLines = 0;
@@ -16,7 +17,10 @@ class MenuPrompt {
 
     public:
         void setMenuOffset();
-        MenuPrompt(std::vector<std::string> menuItems) { this->menuItems = menuItems; };
+        MenuPrompt(std::string prompt, std::vector<std::string> menuItems) {
+            this->menuItems = menuItems;
+            this->prompt = prompt;
+        };
 
         /// Presents the menu to the user and returns their choices
         std::vector<std::string> presentPrompt(); 

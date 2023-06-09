@@ -4,10 +4,9 @@
 
 using std::string;
 
-GitCommit::GitCommit(std::string commitMessage) : GitCommand("git commit -m")
-{
-    string message = commitMessage;
-}
+GitCommit::GitCommit(std::string commitMessage)
+    : GitCommand("commit -m \"" + commitMessage + "\"")
+{}
 
 void GitCommit::run()
 {

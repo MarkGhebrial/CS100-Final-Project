@@ -42,11 +42,7 @@ int main(int argc, char** argv) {
         checkoutWizard();
     }
     else if (argument == "sync") {
-        GitPull pull = GitPull();
-        pull.run();
-
-        GitPush push = GitPush();
-        push.run();
+        sync();
     }
     else if (argument == "discard") {
         discardWizard();
