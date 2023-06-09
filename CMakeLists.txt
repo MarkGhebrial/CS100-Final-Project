@@ -5,6 +5,9 @@ add_executable(gb
     src/main.cpp
     src/git/gitCommand.cpp
     src/git/gitCommit.cpp
+    src/git/gitDeleteBranch.cpp
+    src/git/gitListBranches.cpp
+    src/git/gitNewBranch.cpp
     src/git/gitPull.cpp
     src/git/gitPush.cpp
     src/git/gitStatus.cpp
@@ -20,6 +23,7 @@ add_executable(menuTest
 
 add_executable(tests
     test/tests.cpp
+    test/gitBranchTests.cpp
     test/gitPullTests.cpp
     test/gitPushTests.cpp
     test/gitStatusTests.cpp
@@ -30,6 +34,9 @@ add_executable(tests
     src/ui/stringPrompt.cpp
     src/git/gitCommand.cpp
     src/git/gitCommit.cpp
+    src/git/gitDeleteBranch.cpp
+    src/git/gitListBranches.cpp
+    src/git/gitNewBranch.cpp
     src/git/gitPull.cpp
     src/git/gitPush.cpp
     src/git/gitStatus.cpp
