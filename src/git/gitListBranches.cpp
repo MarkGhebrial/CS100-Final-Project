@@ -20,7 +20,7 @@ std::vector<string> GitListBranches::run()
     {
         string branchName = line.substr(2, line.size() - 1);
 
-        branchVector.push_back(line);
+        branchVector.push_back(branchName);
     }
 
     return branchVector;

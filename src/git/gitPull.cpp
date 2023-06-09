@@ -4,6 +4,8 @@
 #include <string>
 #include <iostream>
 #include <sstream>
+#include <vector>
+
 using std::string;
 using std::istringstream;
 
@@ -13,19 +15,22 @@ void GitPull::run()
     checkForErrors(output);
 }
 
-void GitPull::checkForErrors(std::string output)
+void GitPull::checkForErrors(string output)
 {
     istringstream stream(output);
 
-    string line = "";
-    string str;
+    std::vector<string> errorMessage;
+    string line;
     while (getline(stream, line))
     {
-        str = line.substr(0, 5);
+        errorMessage.push_back(line.substr(0, 6));
     }
 
-    if (str == "error" || str == "fatal")
+    for (string errorMessageLine : errorMessage)
     {
-        throw GitError(GitErrorType::GIT_FAILED_TO_PULL);
+        if (errorMessageLine == "error" || errorMessageLine == "fatal")
+        {
+            throw GitError(GitErrorType::GIT_FAILED_TO_PULL);
+        }
     }
 }

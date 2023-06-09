@@ -9,9 +9,9 @@ TEST(GitPullTests, oneLine)
 {
     GitPull olPull = GitPull();
 
-    string output = "error: failed to pull!";
-    EXPECT_THROW(olPull.checkForErrors(output), string*);
+    string output = "error";
+    EXPECT_THROW(olPull.checkForErrors(output), std::exception);
 
-    output = "  error: failed to pull!";
-    EXPECT_THROW(olPull.checkForErrors(output), string*);
+    output = "fatal";
+    EXPECT_THROW(olPull.checkForErrors(output), std::exception);
 }

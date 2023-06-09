@@ -23,7 +23,7 @@ class MenuPrompt {
 
     public:
         void setMenuOffset();
-
+        
         MenuPrompt(std::string prompt, std::vector<std::string> menuItems, SingleOrMultiSelection selectionOption) {
             this->prompt = prompt;
             this->menuItems = menuItems;
