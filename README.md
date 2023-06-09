@@ -97,10 +97,11 @@ Menu can either allow the user to select one item or multiple.
 The user moves the cursor with the arrow keys, selects items with the space bar, and confirms the selection using the enter key.
 
 <pre><code>Menu prompt:
-    [ ] Menu item 1       [ ] Menu item 6
-    <b>[ ] Cursor location</b>   [ ] Menu item 7
-    [ ] Menu item 3       [ ] Menu item 8
-    [ ] Menu item 4       [x] <i>Selected menu item</i>
+    [ ] Menu item 1
+    <b>[ ] Cursor location</b>
+    [ ] Menu item 3
+    [ ] Menu item 4
+    [x] Selected menu item
     [ ] Menu item 5
 </code></pre>
 
@@ -205,13 +206,6 @@ After learning the SOLID priciples, we realized that our design severely violate
 
 Consequentially, we decided that the polymorphism provided by our complex inheritance structure was not very important for our program, so we removed the `GitCommandResult`, `TerminalPromptResult`, and `TerminalPrompt` interfaces.
 We kept the `GitCommand` parent class because it actually provides functionality to its children (i.e. invoking git in a shell).
- 
-> ## Final deliverable
-> All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
-> Before the demo, you should do the following:
-> * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
-> * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
-> * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
 
 ## Screenshots
 > Screenshots of the input/output after running your application
