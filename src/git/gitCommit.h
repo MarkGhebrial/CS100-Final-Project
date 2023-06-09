@@ -13,8 +13,6 @@ class GitCommit : public GitCommand {
         GitCommit(std::string commitMessage);
 
         void run();
-    private:
-        std::string message;
 };
 
 #endif
