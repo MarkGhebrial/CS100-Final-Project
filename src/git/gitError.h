@@ -20,7 +20,10 @@ enum GitErrorType{
     GIT_CHECKOUT_WILL_OVERWRITE,
 
     /// couldn't push to repository
-    GIT_FAILED_TO_PUSH
+    GIT_FAILED_TO_PUSH,
+
+    /// `git add` failed
+    GIT_ADD_ERROR
 };
 
 class GitError : public std::exception
@@ -56,6 +59,13 @@ class GitError : public std::exception
             else if (errorType == GIT_FAILED_TO_PUSH)
             {
                 return "Failed to push to the repository!";
+            }
+            else if (errorType == GIT_ADD_ERROR)
+            {
+                return "Git add failed!";
+            }
+            else {
+                return "INVALID ERROR TYPE!";
             }
         }
 

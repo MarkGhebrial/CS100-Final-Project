@@ -14,7 +14,6 @@ class GitCommand {
         /// @return The command's output
         std::string runCommand();
 
-    private:
         std::string command;
 };
 

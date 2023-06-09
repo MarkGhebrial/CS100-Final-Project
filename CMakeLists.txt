@@ -3,6 +3,7 @@ project(gitbuddy)
 
 add_executable(gb
     src/main.cpp
+    src/git/gitAdd.cpp
     src/git/gitCommand.cpp
     src/git/gitCommit.cpp
     src/git/gitDeleteBranch.cpp

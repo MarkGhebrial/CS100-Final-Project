@@ -19,7 +19,18 @@ using std::string;
 #include "ui/prompts.h"
 
 void printHelpMessage() {
-    cout << "TODO: Write a help message" << endl;
+    cout << R"(Usage: gb <command>
+
+Commands:
+  commit    Stage and commit your changes
+  merge     Merge one branch into another
+  branch    Create or delete a branch
+  checkout  Switch to another branch
+  sync      Pull and push your current branch
+  discard   Discard changes on the working tree
+  revert    Select commits to revert
+  reset     Select a commit to roll history back to
+  ignore    Untrack files and add them to .gitignore)" << endl;
 }
 
 int main(int argc, char** argv) {
@@ -45,11 +56,7 @@ int main(int argc, char** argv) {
         checkoutWizard();
     }
     else if (argument == "sync") {
-        GitPull pull = GitPull();
-        pull.run();
-
-        GitPush push = GitPush();
-        push.run();
+        sync();
     }
     else if (argument == "discard") {
         discardWizard();

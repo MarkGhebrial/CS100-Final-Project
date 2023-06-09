@@ -97,10 +97,11 @@ Menu can either allow the user to select one item or multiple.
 The user moves the cursor with the arrow keys, selects items with the space bar, and confirms the selection using the enter key.
 
 <pre><code>Menu prompt:
-    [ ] Menu item 1       [ ] Menu item 6
-    <b>[ ] Cursor location</b>   [ ] Menu item 7
-    [ ] Menu item 3       [ ] Menu item 8
-    [ ] Menu item 4       [x] <i>Selected menu item</i>
+    [ ] Menu item 1
+    <b>[ ] Cursor location</b>
+    [ ] Menu item 3
+    [ ] Menu item 4
+    [x] Selected menu item
     [ ] Menu item 5
 </code></pre>
 
@@ -205,39 +206,49 @@ After learning the SOLID priciples, we realized that our design severely violate
 
 Consequentially, we decided that the polymorphism provided by our complex inheritance structure was not very important for our program, so we removed the `GitCommandResult`, `TerminalPromptResult`, and `TerminalPrompt` interfaces.
 We kept the `GitCommand` parent class because it actually provides functionality to its children (i.e. invoking git in a shell).
- 
- > ## Phase III
- > You will need to schedule a check-in for the second scrum meeting with the same reader you had your first scrum meeting with (using Calendly). Your entire team must be present. This meeting will occur on week 8 during lab time.
- 
- > BEFORE the meeting you should do the following:
- > * Update your class diagram from Phase II to include any feedback you received from your TA/grader.
- > * Considering the SOLID design principles, reflect back on your class diagram and think about how you can use the SOLID principles to improve your design. You should then update the README.md file by adding the following:
- >   * A new class diagram incorporating your changes after considering the SOLID principles.
- >   * For each update in your class diagram, you must explain in 3-4 sentences:
- >     * What SOLID principle(s) did you apply?
- >     * How did you apply it? i.e. describe the change.
- >     * How did this change help you write better code?
- > * Perform a new sprint plan like you did in Phase II.
- > * You should also make sure that your README file (and Project board) are up-to-date reflecting the current status of your project and the most recent class diagram. Previous versions of the README file should still be visible through your commit history.
- 
-> During the meeting with your reader you will discuss: 
- > * How effective your last sprint was (each member should talk about what they did)
- > * Any tasks that did not get completed last sprint, and how you took them into consideration for this sprint
- > * Any bugs you've identified and created issues for during the sprint. Do you plan on fixing them in the next sprint or are they lower priority?
- > * What tasks you are planning for this next sprint.
 
- 
- > ## Final deliverable
- > All group members will give a demo to the reader during lab time. ou should schedule your demo on Calendly with the same reader who took your second scrum meeting. The reader will check the demo and the project GitHub repository and ask a few questions to all the team members. 
- > Before the demo, you should do the following:
- > * Complete the sections below (i.e. Screenshots, Installation/Usage, Testing)
- > * Plan one more sprint (that you will not necessarily complete before the end of the quarter). Your In-progress and In-testing columns should be empty (you are not doing more work currently) but your TODO column should have a full sprint plan in it as you have done before. This should include any known bugs (there should be some) or new features you would like to add. These should appear as issues/cards on your Project board.
- > * Make sure your README file and Project board are up-to-date reflecting the current status of your project (e.g. any changes that you have made during the project such as changes to your class diagram). Previous versions should still be visible through your commit history. 
- 
- ## Screenshots
- > Screenshots of the input/output after running your application
- ## Installation/Usage
- > Instructions on installing and running your application
- ## Testing
- > How was your project tested/validated? If you used CI, you should have a "build passing" badge in this README.
- 
+## Screenshots
+> Screenshots of the input/output after running your application
+
+## Compilation and Installation
+
+To build GitBuddy, clone this repository, then run the following commands in its root directory.
+
+```
+cmake .
+make
+```
+
+An executable called "gb" will be created in the root directory of the project. To install GitBuddy, just put that executable somewhere in your PATH.
+
+## Usage
+
+```
+Usage: gb <command>
+
+Commands:
+  commit    Stage and commit your changes
+  merge     Merge one branch into another
+  branch    Create or delete a branch
+  checkout  Switch to another branch
+  sync      Pull and push your current branch
+  discard   Discard changes on the working tree
+  revert    Select commits to revert
+  reset     Select a commit to roll history back to
+  ignore    Untrack files and add them to .gitignore
+```
+
+## Testing
+
+We used gtest to write unit tests for our ui prompts and git backend classes.
+
+Unit tests were implemented for the `YesOrNoPrompt` and `StringPrompt` by replacing `cin` and `cout` with `istringstream`s and `ostringstream`s. Different combinations of `YesOrNoPrompts` and `StringPrompts` are tested in `src/test/combineYNStringTests.cpp`.
+
+The `MenuPrompt` class does not use C++'s iostreams and instead uses `conio.h`. It might be possible to unit test it if we wrote a wrapper around conio, but we instead wrote a simple program (in `src/menuPromptTest.cpp`) that allows you to check if the menuPrompt works as expected.
+Run the `menuTest` executable after building the project to test the menu.
+
+> NOTE: `MenuPrompt` is only verified to work on the CS100 ssh server and Linux Mint. See [issue #42](https://github.com/cs100/final-project-ttrin055-twan012-mgheb003-cknox008/issues/42)
+
+Invoking Git cannot be unit tested (at least not easily), so we only test the functions that are responsible for parsing Git's output, such as the `GitStatusResult` constructor or `GitPush::checkForErrors`.
+
+We test the `GitListBranches`, `GitNewBranch`, and `GitDeleteBranch` classes by creating a branch, checking that it exists, deleting it, then checking that it's gone. That unit test is in `test/gitBranchTests.cpp`.
